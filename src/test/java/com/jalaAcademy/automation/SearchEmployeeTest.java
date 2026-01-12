@@ -58,7 +58,7 @@ public class SearchEmployeeTest extends BaseTest {
 	
 	public synchronized void A_testSearchEmployee() throws Exception {
 		log.info("Starting of testSearchEmployee method");
-
+		
 		Thread.sleep(3000);
 		searchEmployee.clickOnSearch();
 		searchEmployee.enterEmployeeName(testDataProp.getProperty("employee.name"));
@@ -66,10 +66,8 @@ public class SearchEmployeeTest extends BaseTest {
 		searchEmployee.clickOnSearch1();
 		Thread.sleep(3000);
 		//Assert.fail();
-		log.info("Ending of testSearchEmployee method");
-
 		
-	
+		log.info("Ending of testSearchEmployee method");
 	}
 	@AfterClass
 	public synchronized void quit() throws InterruptedException {

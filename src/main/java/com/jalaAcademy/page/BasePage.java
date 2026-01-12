@@ -17,7 +17,7 @@ public class BasePage {
 
 	public void sendKeys(WebElement element, String text) {
 		log.info("Starting of sendKeys method");
-		
+
 		element.clear();
 		element.sendKeys(text);
 
@@ -34,7 +34,7 @@ public class BasePage {
 	public String getText(WebElement element) {
 		log.info("Starting of getText method");
 		log.info("Ending of getText method");
-		
+
 		return element.getText();
 	}
 }

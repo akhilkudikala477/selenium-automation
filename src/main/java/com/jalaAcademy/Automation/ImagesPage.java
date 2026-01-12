@@ -23,6 +23,7 @@ public class ImagesPage extends BasePage {
 		log.info("Starting of ImagesPage constructor");
 
 		PageFactory.initElements(Driver, this);
+		
 		log.info("Ending of ImagesPage constructor");
 
 	}

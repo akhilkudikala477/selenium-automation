@@ -72,8 +72,8 @@ public class EmployeeDetailsTest extends BaseTest {
 		employeeDetails.clickOnHyderabad();
 		employeeDetails.clickOnQaAutomation();
 		employeeDetails.clickOnIndia();
+		
 		log.info("Ending of testVaildEmployeeDetails method");
-
 	}
 
 	@AfterClass

@@ -38,13 +38,10 @@ public class IframeTest extends BaseTest {
 		log.info("Starting of setup method");
 
 		driver =createDriver(browser);
-
 		iframePage = new IframePage(driver);
 		homePage = new HomePage(driver);
 		loginPage = new LoginPage(driver);
 		driver.get(siteURL);
-
-		
 		loginPage.enterEmail(testDataProp.getProperty("valid.username"));
 		loginPage.enterPassword(testDataProp.getProperty("valid.password"));
 		loginPage.clickOnRememberMe();
@@ -73,9 +70,8 @@ public class IframeTest extends BaseTest {
 
 		String hdrWelcomeToJalaAcademy = iframePage.getWelcomeToJalaAcademyText(driver);
 		Assert.assertEquals(hdrWelcomeToJalaAcademy, expectedAssertion.getProperty("header.tittle"));
+		
 		log.info("Ending of testIframe method");
-
-
 	}
 
 	@AfterClass

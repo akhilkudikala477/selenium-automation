@@ -26,8 +26,8 @@ public class HomePage extends BasePage {
 		log.info("Starting of HomePage constructor");
 
 		PageFactory.initElements(Driver,this);
+		
 		log.info("Ending of HomePage constructor");
-
 	}
 	
 	public void clickOnMoreButton(WebDriver driver) {

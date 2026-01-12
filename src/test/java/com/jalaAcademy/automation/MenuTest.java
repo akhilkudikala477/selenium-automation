@@ -31,13 +31,12 @@ public class MenuTest extends BaseTest {
 	@Parameters({ "browser", "siteURL" })
 	public void setup(String browser, String siteURL) throws InterruptedException {
 		log.info("Starting of setup method");
-
+		
 		driver = createDriver(browser);
 		menuPage = new MenuPage(driver);
 		homePage = new HomePage(driver);
 		loginPage = new LoginPage(driver);
 		driver.get(siteURL);
-
 		loginPage.enterEmail(testDataProp.getProperty("valid.username"));
 		loginPage.enterPassword(testDataProp.getProperty("valid.password"));
 		loginPage.clickOnRememberMe();
@@ -45,6 +44,7 @@ public class MenuTest extends BaseTest {
 		homePage.clickOnMoreButton(driver);
 		Thread.sleep(3000);
 		homePage.clickOnMenuButton();
+		
 		log.info("Ending of setup method");
 
 	}
@@ -60,8 +60,8 @@ public class MenuTest extends BaseTest {
 		menuPage.clickOnSubMenuButton();
 	//	menuPage.MouseHoverOnTestingLabel(driver);
 		//menuPage.ClickOnSeleniumButton();
+		
 		log.info("Ending of testMenu method");
-
 	}
 
 	@AfterClass

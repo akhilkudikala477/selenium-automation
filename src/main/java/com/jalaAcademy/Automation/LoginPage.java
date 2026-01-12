@@ -18,8 +18,6 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath="//span[@class='checkmark']")
 	private WebElement btnRememberMeCheckBox;
 	
-	
-	
 	@FindBy(xpath="//button[@id='btnLogin']")
 	private WebElement btnLogin;
 	

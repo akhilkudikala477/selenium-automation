@@ -20,24 +20,18 @@ import io.qameta.allure.Story;
 public class ImagesTest extends BaseTest {
 	protected static WebDriver driver;
 	LoginPage loginPage;
-	
 	HomePage homePage;
-	
 	ImagesPage imagesPage;
-
 	@BeforeClass
 	@Parameters({ "browser", "siteURL" })
 	public void setup(String browser, String siteURL) throws Exception {
 		log.info("Starting of setup method");
-
-		driver = createDriver(browser);
 		
+		driver = createDriver(browser);
 		imagesPage = new ImagesPage(driver);
 		homePage = new HomePage(driver);
 		loginPage = new LoginPage(driver);
 		driver.get(siteURL);
-
-		
 		loginPage.enterEmail(testDataProp.getProperty("valid.username"));
 		loginPage.enterPassword(testDataProp.getProperty("valid.password"));
 		loginPage.clickOnRememberMe();
@@ -45,8 +39,8 @@ public class ImagesTest extends BaseTest {
 		homePage.clickOnMoreButton(driver);
 		Thread.sleep(3000);
 		homePage.clickOnImageButton();
+		
 		log.info("Ending of setup method");
-
 	}
 
 	@Test(/*priority = 1,*/ description = "Verify that the application allows switching to iframe and performing actions inside it")
@@ -62,11 +56,9 @@ public class ImagesTest extends BaseTest {
 		imagesPage.clickOnUploadButton();
 		String labelUploadedImage = imagesPage.getImageLabel();
 //		Assert.assertEquals(labelUploadedImage, expectedAssertion.getProperty("image.page.label"));
+	
 		log.info("Ending of testUploadImages method");
-
-
 	}
-
 	@AfterClass
 	public synchronized void quit() throws InterruptedException {
 		quitDriver();
