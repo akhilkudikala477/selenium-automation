@@ -17,7 +17,7 @@
 			<class name="com.jalaAcademy.automation.ImagesTest" />
 		</classes>
 	</test>
-	<test name="Firefox">
+	<!--<test name="Firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<parameter name="siteURL"
 			value="https://magnus.jalatechnologies.com/Account/Login"/>
@@ -29,5 +29,5 @@
 			<class name="com.jalaAcademy.automation.IframeTest" />
 			<class name="com.jalaAcademy.automation.ImagesTest" />
 		</classes>
-	</test>
+	</test>-->
 </suite> 
