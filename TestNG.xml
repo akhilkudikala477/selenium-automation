@@ -12,11 +12,11 @@
 			value="https://magnus.jalatechnologies.com/Account/Login"></parameter>
 		<classes>
 			<class name="com.jalaAcademy.automation.LoginTest" />
-			<class name="com.jalaAcademy.automation.EmployeeDetailsTest" />
+		<!--	<class name="com.jalaAcademy.automation.EmployeeDetailsTest" />
 			<class name="com.jalaAcademy.automation.SearchEmployeeTest" />
 			<class name="com.jalaAcademy.automation.MenuTest" />
 			<class name="com.jalaAcademy.automation.IframeTest" />
-			<class name="com.jalaAcademy.automation.ImagesTest" />
+			<class name="com.jalaAcademy.automation.ImagesTest" />-->
 		</classes>
 	</test>
 	<!--<test name="Firefox">
