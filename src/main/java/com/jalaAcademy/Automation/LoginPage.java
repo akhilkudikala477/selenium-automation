@@ -10,6 +10,9 @@ import com.jalaAcademy.page.BasePage;
 public class LoginPage extends BasePage {
 	
 	@FindBy(xpath="//input[@id='UserName']")
+	
+	
+	
 	private WebElement inpEmail;
 
 	@FindBy(xpath="//input[@id='Password']")
@@ -17,6 +20,7 @@ public class LoginPage extends BasePage {
 	
 	@FindBy(xpath="//span[@class='checkmark']")
 	private WebElement btnRememberMeCheckBox;
+	
 	
 	@FindBy(xpath="//button[@id='btnLogin']")
 	private WebElement btnLogin;

@@ -13,8 +13,9 @@ import org.testng.ITestResult;
 import com.jalaAcademy.base.BaseTest;
 
 import io.qameta.allure.Allure;
-
-public class Listeners implements ITestListener {
+import io.qameta.allure.testng.AllureTestNg;
+public class Listeners extends AllureTestNg implements ITestListener {
+//public class Listeners implements ITestListener {
 	protected Logger log = LogManager.getLogger(Listeners.class);
 
 	@Override

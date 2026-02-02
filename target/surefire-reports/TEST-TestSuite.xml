@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="99.58" tests="18" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="webdriver.chrome.driver" value="C:\Users\hp\.cache\selenium\chromedriver\win64\144.0.7559.109\chromedriver.exe"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\hp\eclipse-workspace\JalaAcademy-Automation-Suite\target\test-classes;C:\Users\hp\eclipse-workspace\JalaAcademy-Automation-Suite\target\classes;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-java\4.38.0\selenium-java-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-api\4.38.0\selenium-api-4.38.0.jar;C:\Users\hp\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.38.0\selenium-chrome-driver-4.38.0.jar;C:\Users\hp\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.38.0\selenium-chromium-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-json\4.38.0\selenium-json-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.38.0\selenium-manager-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v140\4.38.0\selenium-devtools-v140-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v141\4.38.0\selenium-devtools-v141-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v142\4.38.0\selenium-devtools-v142-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.38.0\selenium-edge-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.38.0\selenium-firefox-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-http\4.38.0\selenium-http-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.38.0\selenium-ie-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.38.0\selenium-remote-driver-4.38.0.jar;C:\Users\hp\.m2\repository\com\google\guava\guava\33.5.0-jre\guava-33.5.0-jre.jar;C:\Users\hp\.m2\repository\com\google\guava\failureaccess\1.0.3\failureaccess-1.0.3.jar;C:\Users\hp\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\hp\.m2\repository\com\google\j2objc\j2objc-annotations\3.1\j2objc-annotations-3.1.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-api\1.55.0\opentelemetry-api-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-context\1.55.0\opentelemetry-context-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-common\1.55.0\opentelemetry-common-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.55.0\opentelemetry-exporter-logging-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.55.0\opentelemetry-sdk-common-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.55.0\opentelemetry-sdk-extension-autoconfigure-spi-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.55.0\opentelemetry-sdk-extension-autoconfigure-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.55.0\opentelemetry-sdk-trace-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.55.0\opentelemetry-sdk-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.55.0\opentelemetry-sdk-metrics-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.55.0\opentelemetry-sdk-logs-1.55.0.jar;C:\Users\hp\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-os\4.38.0\selenium-os-4.38.0.jar;C:\Users\hp\.m2\repository\org\apache\commons\commons-exec\1.5.0\commons-exec-1.5.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.38.0\selenium-safari-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-support\4.38.0\selenium-support-4.38.0.jar;C:\Users\hp\.m2\repository\org\testng\testng\7.11.0\testng-7.11.0.jar;C:\Users\hp\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\hp\.m2\repository\org\jcommander\jcommander\1.83\jcommander-1.83.jar;C:\Users\hp\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\hp\.m2\repository\io\github\bonigarcia\webdrivermanager\6.3.3\webdrivermanager-6.3.3.jar;C:\Users\hp\.m2\repository\com\google\code\gson\gson\2.13.2\gson-2.13.2.jar;C:\Users\hp\.m2\repository\com\google\errorprone\error_prone_annotations\2.41.0\error_prone_annotations-2.41.0.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java\3.6.0\docker-java-3.6.0.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java-core\3.6.0\docker-java-core-3.6.0.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java-api\3.6.0\docker-java-api-3.6.0.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.2\jackson-annotations-2.19.2.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.2\jackson-databind-2.19.2.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.2\jackson-core-2.19.2.jar;C:\Users\hp\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.6.0\docker-java-transport-httpclient5-3.6.0.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java-transport\3.6.0\docker-java-transport-3.6.0.jar;C:\Users\hp\.m2\repository\net\java\dev\jna\jna\5.17.0\jna-5.17.0.jar;C:\Users\hp\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\hp\.m2\repository\org\apache\commons\commons-lang3\3.19.0\commons-lang3-3.19.0.jar;C:\Users\hp\.m2\repository\org\apache\commons\commons-compress\1.28.0\commons-compress-1.28.0.jar;C:\Users\hp\.m2\repository\commons-codec\commons-codec\1.19.0\commons-codec-1.19.0.jar;C:\Users\hp\.m2\repository\commons-io\commons-io\2.20.0\commons-io-2.20.0.jar;C:\Users\hp\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.4.3\httpclient5-5.4.3.jar;C:\Users\hp\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.3.4\httpcore5-5.3.4.jar;C:\Users\hp\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.3.4\httpcore5-h2-5.3.4.jar;C:\Users\hp\.m2\repository\io\qameta\allure\allure-testng\2.24.0\allure-testng-2.24.0.jar;C:\Users\hp\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\hp\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\hp\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;C:\Users\hp\.m2\repository\org\apache\logging\log4j\log4j-api\2.22.0\log4j-api-2.22.0.jar;C:\Users\hp\.m2\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;C:\Users\hp\.m2\repository\org\apache\logging\log4j\log4j-core\2.22.0\log4j-core-2.22.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
+    <property name="sun.java.command" value="C:\Users\hp\AppData\Local\Temp\surefire574901905086078006\surefirebooter-20260202130220843_3.jar C:\Users\hp\AppData\Local\Temp\surefire574901905086078006 2026-02-02T13-02-18_242-jvmRun1 surefire-20260202130220843_1tmp surefire_0-20260202130220843_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\hp\eclipse-workspace\JalaAcademy-Automation-Suite\target\test-classes;C:\Users\hp\eclipse-workspace\JalaAcademy-Automation-Suite\target\classes;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-java\4.38.0\selenium-java-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-api\4.38.0\selenium-api-4.38.0.jar;C:\Users\hp\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.38.0\selenium-chrome-driver-4.38.0.jar;C:\Users\hp\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.38.0\selenium-chromium-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-json\4.38.0\selenium-json-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.38.0\selenium-manager-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v140\4.38.0\selenium-devtools-v140-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v141\4.38.0\selenium-devtools-v141-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v142\4.38.0\selenium-devtools-v142-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.38.0\selenium-edge-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.38.0\selenium-firefox-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-http\4.38.0\selenium-http-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.38.0\selenium-ie-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.38.0\selenium-remote-driver-4.38.0.jar;C:\Users\hp\.m2\repository\com\google\guava\guava\33.5.0-jre\guava-33.5.0-jre.jar;C:\Users\hp\.m2\repository\com\google\guava\failureaccess\1.0.3\failureaccess-1.0.3.jar;C:\Users\hp\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\hp\.m2\repository\com\google\j2objc\j2objc-annotations\3.1\j2objc-annotations-3.1.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-api\1.55.0\opentelemetry-api-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-context\1.55.0\opentelemetry-context-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-common\1.55.0\opentelemetry-common-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.55.0\opentelemetry-exporter-logging-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.55.0\opentelemetry-sdk-common-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.55.0\opentelemetry-sdk-extension-autoconfigure-spi-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.55.0\opentelemetry-sdk-extension-autoconfigure-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.55.0\opentelemetry-sdk-trace-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.55.0\opentelemetry-sdk-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.55.0\opentelemetry-sdk-metrics-1.55.0.jar;C:\Users\hp\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.55.0\opentelemetry-sdk-logs-1.55.0.jar;C:\Users\hp\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-os\4.38.0\selenium-os-4.38.0.jar;C:\Users\hp\.m2\repository\org\apache\commons\commons-exec\1.5.0\commons-exec-1.5.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.38.0\selenium-safari-driver-4.38.0.jar;C:\Users\hp\.m2\repository\org\seleniumhq\selenium\selenium-support\4.38.0\selenium-support-4.38.0.jar;C:\Users\hp\.m2\repository\org\testng\testng\7.11.0\testng-7.11.0.jar;C:\Users\hp\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\hp\.m2\repository\org\jcommander\jcommander\1.83\jcommander-1.83.jar;C:\Users\hp\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\hp\.m2\repository\io\github\bonigarcia\webdrivermanager\6.3.3\webdrivermanager-6.3.3.jar;C:\Users\hp\.m2\repository\com\google\code\gson\gson\2.13.2\gson-2.13.2.jar;C:\Users\hp\.m2\repository\com\google\errorprone\error_prone_annotations\2.41.0\error_prone_annotations-2.41.0.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java\3.6.0\docker-java-3.6.0.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java-core\3.6.0\docker-java-core-3.6.0.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java-api\3.6.0\docker-java-api-3.6.0.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.2\jackson-annotations-2.19.2.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.2\jackson-databind-2.19.2.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.2\jackson-core-2.19.2.jar;C:\Users\hp\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.6.0\docker-java-transport-httpclient5-3.6.0.jar;C:\Users\hp\.m2\repository\com\github\docker-java\docker-java-transport\3.6.0\docker-java-transport-3.6.0.jar;C:\Users\hp\.m2\repository\net\java\dev\jna\jna\5.17.0\jna-5.17.0.jar;C:\Users\hp\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\hp\.m2\repository\org\apache\commons\commons-lang3\3.19.0\commons-lang3-3.19.0.jar;C:\Users\hp\.m2\repository\org\apache\commons\commons-compress\1.28.0\commons-compress-1.28.0.jar;C:\Users\hp\.m2\repository\commons-codec\commons-codec\1.19.0\commons-codec-1.19.0.jar;C:\Users\hp\.m2\repository\commons-io\commons-io\2.20.0\commons-io-2.20.0.jar;C:\Users\hp\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.4.3\httpclient5-5.4.3.jar;C:\Users\hp\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.3.4\httpcore5-5.3.4.jar;C:\Users\hp\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.3.4\httpcore5-h2-5.3.4.jar;C:\Users\hp\.m2\repository\io\qameta\allure\allure-testng\2.24.0\allure-testng-2.24.0.jar;C:\Users\hp\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\hp\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\hp\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;C:\Users\hp\.m2\repository\org\apache\logging\log4j\log4j-api\2.22.0\log4j-api-2.22.0.jar;C:\Users\hp\.m2\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;C:\Users\hp\.m2\repository\org\apache\logging\log4j\log4j-core\2.22.0\log4j-core-2.22.0.jar;"/>
+    <property name="allure.results.directory" value="target/allure-results"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\hp"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\hp\eclipse-workspace\JalaAcademy-Automation-Suite"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\hp\AppData\Local\Temp\surefire574901905086078006\surefirebooter-20260202130220843_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.12+8-LTS-286"/>
+    <property name="user.name" value="hp"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\hp\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\hp\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.12"/>
+    <property name="user.dir" value="C:\Users\hp\eclipse-workspace\JalaAcademy-Automation-Suite"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="webdriver.gecko.driver" value="C:\Users\hp\.cache\selenium\geckodriver\win64\0.36.0\geckodriver.exe"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\allure-2.35.1\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Apache\Maven\apache-maven-3.9.12\bin;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.12+8-LTS-286"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="A_TestInvaildLogin" classname="com.jalaAcademy.automation.LoginTest" time="1.474">
+    <system-out><![CDATA[2026-02-02 13:02:26 INFO  BaseTest - Starting of setup method
+2026-02-02 13:02:26 INFO  BaseTest - Starting of setup method
+2026-02-02 13:02:29 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:02:29 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:02:30 INFO  BaseTest - Ending of setup method
+2026-02-02 13:02:30 INFO  Listeners - Test Started  : A_TestInvaildLogin
+2026-02-02 13:02:30 INFO  BaseTest - Starting of TestInvaildLogin method
+2026-02-02 13:02:30 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:30 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:31 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:31 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:31 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:31 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:31 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:31 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:31 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:31 INFO  BasePage - Starting of click method
+2026-02-02 13:02:31 INFO  BasePage - Ending of click method
+2026-02-02 13:02:31 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:31 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:31 INFO  BasePage - Starting of click method
+2026-02-02 13:02:31 INFO  BasePage - Ending of click method
+2026-02-02 13:02:31 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:31 INFO  BaseTest - Ending of TestInvaildLogin method
+2026-02-02 13:02:31 INFO  Listeners - Test PassedA_TestInvaildLogin
+]]></system-out>
+    <system-err><![CDATA[SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+Feb 02, 2026 1:02:28 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 144, returning the closest version; found: 142; Please update to a Selenium version that supports CDP version 144
+]]></system-err>
+  </testcase>
+  <testcase name="A_TestInvaildLogin" classname="com.jalaAcademy.automation.LoginTest" time="1.105">
+    <system-out><![CDATA[2026-02-02 13:02:34 INFO  BaseTest - Starting of setup method
+2026-02-02 13:02:34 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:02:34 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:02:35 INFO  BaseTest - Ending of setup method
+2026-02-02 13:02:35 INFO  Listeners - Test Started  : A_TestInvaildLogin
+2026-02-02 13:02:35 INFO  BaseTest - Starting of TestInvaildLogin method
+2026-02-02 13:02:35 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:35 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:36 INFO  BasePage - Starting of EmployeeDetails constructor
+2026-02-02 13:02:36 INFO  BasePage - Ending of EmployeeDetails constructor
+2026-02-02 13:02:36 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:02:36 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:02:36 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:36 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:36 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:36 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:36 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:36 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:36 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:36 INFO  BasePage - Starting of click method
+2026-02-02 13:02:36 INFO  BasePage - Ending of click method
+2026-02-02 13:02:36 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:36 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:36 INFO  BasePage - Starting of click method
+2026-02-02 13:02:36 INFO  BasePage - Ending of click method
+2026-02-02 13:02:36 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:36 INFO  BaseTest - Ending of TestInvaildLogin method
+2026-02-02 13:02:36 INFO  Listeners - Test PassedA_TestInvaildLogin
+]]></system-out>
+    <system-err><![CDATA[Feb 02, 2026 1:02:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 144, returning the closest version; found: 142; Please update to a Selenium version that supports CDP version 144
+]]></system-err>
+  </testcase>
+  <testcase name="B_TestInvaildLogin2" classname="com.jalaAcademy.automation.LoginTest" time="0.66">
+    <system-out><![CDATA[2026-02-02 13:02:32 INFO  Listeners - Test Started  : B_TestInvaildLogin2
+2026-02-02 13:02:32 INFO  BaseTest - Starting of TestInvaildLogin2 method
+2026-02-02 13:02:32 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:32 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:32 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:32 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:32 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:32 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:32 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:32 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:32 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:32 INFO  BasePage - Starting of click method
+2026-02-02 13:02:32 INFO  BasePage - Ending of click method
+2026-02-02 13:02:32 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:32 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:32 INFO  BasePage - Starting of click method
+2026-02-02 13:02:32 INFO  BasePage - Ending of click method
+2026-02-02 13:02:32 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:32 INFO  BaseTest - Ending of TestInvaildLogin2 method
+2026-02-02 13:02:32 INFO  Listeners - Test PassedB_TestInvaildLogin2
+]]></system-out>
+  </testcase>
+  <testcase name="B_TestInvaildLogin2" classname="com.jalaAcademy.automation.LoginTest" time="0.708">
+    <system-out><![CDATA[2026-02-02 13:02:36 INFO  Listeners - Test Started  : B_TestInvaildLogin2
+2026-02-02 13:02:36 INFO  BaseTest - Starting of TestInvaildLogin2 method
+2026-02-02 13:02:36 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:36 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:37 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:37 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:37 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:37 INFO  BasePage - Starting of click method
+2026-02-02 13:02:37 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:37 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of click method
+2026-02-02 13:02:37 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:37 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:37 INFO  BasePage - Starting of click method
+2026-02-02 13:02:37 INFO  BasePage - Ending of click method
+2026-02-02 13:02:37 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:37 INFO  BaseTest - Ending of TestInvaildLogin2 method
+2026-02-02 13:02:37 INFO  Listeners - Test PassedB_TestInvaildLogin2
+]]></system-out>
+  </testcase>
+  <testcase name="C_TestInvaildLogin3" classname="com.jalaAcademy.automation.LoginTest" time="0.486">
+    <system-out><![CDATA[2026-02-02 13:02:32 INFO  Listeners - Test Started  : C_TestInvaildLogin3
+2026-02-02 13:02:32 INFO  BaseTest - Starting of TestInvaildLogin3 method
+2026-02-02 13:02:32 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:32 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:32 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:32 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:32 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:32 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:33 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:33 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:33 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:33 INFO  BasePage - Starting of click method
+2026-02-02 13:02:33 INFO  BasePage - Ending of click method
+2026-02-02 13:02:33 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:33 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:33 INFO  BasePage - Starting of click method
+2026-02-02 13:02:33 INFO  BasePage - Ending of click method
+2026-02-02 13:02:33 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:33 INFO  BaseTest - Ending of TestInvaildLogin3 method
+2026-02-02 13:02:33 INFO  Listeners - Test PassedC_TestInvaildLogin3
+]]></system-out>
+  </testcase>
+  <testcase name="C_TestInvaildLogin3" classname="com.jalaAcademy.automation.LoginTest" time="0.444">
+    <system-out><![CDATA[2026-02-02 13:02:37 INFO  Listeners - Test Started  : C_TestInvaildLogin3
+2026-02-02 13:02:37 INFO  BaseTest - Starting of TestInvaildLogin3 method
+2026-02-02 13:02:37 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:37 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:37 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:37 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:37 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:37 INFO  BasePage - Starting of click method
+2026-02-02 13:02:37 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:37 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:37 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:37 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:38 INFO  BasePage - Ending of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:38 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:38 INFO  BasePage - Starting of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:38 INFO  BaseTest - Ending of TestInvaildLogin3 method
+2026-02-02 13:02:38 INFO  Listeners - Test PassedC_TestInvaildLogin3
+]]></system-out>
+  </testcase>
+  <testcase name="D_testVaildLogin4" classname="com.jalaAcademy.automation.LoginTest" time="0.632">
+    <system-out><![CDATA[2026-02-02 13:02:33 INFO  Listeners - Test Started  : D_testVaildLogin4
+2026-02-02 13:02:33 INFO  BaseTest - Starting of testVaildLogin4 method
+2026-02-02 13:02:33 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:33 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:33 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:33 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:33 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:33 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:33 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:33 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:33 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:33 INFO  BasePage - Starting of click method
+2026-02-02 13:02:33 INFO  BasePage - Ending of click method
+2026-02-02 13:02:33 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:33 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:33 INFO  BasePage - Starting of click method
+2026-02-02 13:02:33 INFO  BasePage - Ending of click method
+2026-02-02 13:02:33 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:33 INFO  BaseTest - Ending of testVaildLogin4 method
+2026-02-02 13:02:33 INFO  Listeners - Test PassedD_testVaildLogin4
+]]></system-out>
+  </testcase>
+  <testcase name="D_testVaildLogin4" classname="com.jalaAcademy.automation.LoginTest" time="0.037">
+    <system-out><![CDATA[2026-02-02 13:02:38 INFO  Listeners - Test Started  : D_testVaildLogin4
+2026-02-02 13:02:38 INFO  BaseTest - Starting of testVaildLogin4 method
+2026-02-02 13:02:38 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:38 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:38 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:38 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:38 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:38 INFO  BasePage - Starting of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:38 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:38 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:38 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:38 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:38 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:38 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:38 INFO  BasePage - Starting of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:38 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:38 INFO  BasePage - Starting of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:38 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:38 INFO  BasePage - Starting of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:38 INFO  BaseTest - Ending of setup method
+2026-02-02 13:02:38 INFO  Listeners - Test Started  : A_testVaildEmployeeDetails
+2026-02-02 13:02:38 INFO  BaseTest - Starting of testVaildEmployeeDetails method
+2026-02-02 13:02:38 INFO  BasePage - Starting of getWelcomeToJalaAcademy method
+2026-02-02 13:02:38 INFO  BasePage - Ending of getWelcomeToJalaAcademy method
+2026-02-02 13:02:38 INFO  BasePage - Starting of getText method
+2026-02-02 13:02:38 INFO  BasePage - Ending of getText method
+2026-02-02 13:02:38 INFO  BasePage - Ending of click method
+2026-02-02 13:02:38 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:38 INFO  BaseTest - Ending of testVaildLogin4 method
+2026-02-02 13:02:38 INFO  Listeners - Test PassedD_testVaildLogin4
+]]></system-out>
+  </testcase>
+  <testcase name="A_testVaildEmployeeDetails" classname="com.jalaAcademy.automation.EmployeeDetailsTest" time="3.027">
+    <system-out><![CDATA[2026-02-02 13:02:38 INFO  BasePage - Starting of clickOnEmployeeButton method
+2026-02-02 13:02:40 INFO  BaseTest - Starting of setup method
+2026-02-02 13:02:40 INFO  BasePage - Starting of click method
+2026-02-02 13:02:40 INFO  BasePage - Ending of click method
+2026-02-02 13:02:40 INFO  BasePage - Ending of clickOnEmployeeButton method
+2026-02-02 13:02:40 INFO  BasePage - Starting of clickOnCreateButton method
+2026-02-02 13:02:42 INFO  BasePage - Starting of click method
+2026-02-02 13:02:43 INFO  BasePage - Ending of click method
+2026-02-02 13:02:43 INFO  BasePage - Ending of clickOnCreateButton method
+2026-02-02 13:02:43 INFO  BasePage - Starting of enterFirstName method
+2026-02-02 13:02:43 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:43 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:43 INFO  BasePage - Ending of enterFirstName method
+2026-02-02 13:02:43 INFO  BasePage - Starting of enterFirstName method
+2026-02-02 13:02:43 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:43 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:43 INFO  BasePage - Ending of enterFirstName method
+2026-02-02 13:02:43 INFO  BasePage - Starting of enterEmailId method
+2026-02-02 13:02:43 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:44 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:44 INFO  BasePage - Ending of enterEmailId method
+2026-02-02 13:02:44 INFO  BasePage - Starting of enterMobileNumber method
+2026-02-02 13:02:44 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:44 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:44 INFO  BasePage - Ending of enterMobileNumber method
+2026-02-02 13:02:44 INFO  BasePage - Starting of enterDateOfBirth method
+2026-02-02 13:02:44 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:44 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:44 INFO  BasePage - Ending of enterDateOfBirth method
+2026-02-02 13:02:44 INFO  BasePage - Starting of clickOnEmployeeButton method
+2026-02-02 13:02:46 INFO  BasePage - Starting of EmployeeDetails constructor
+2026-02-02 13:02:46 INFO  BasePage - Ending of EmployeeDetails constructor
+2026-02-02 13:02:46 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:02:46 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:02:46 INFO  BasePage - Starting of click method
+2026-02-02 13:02:46 INFO  BasePage - Ending of click method
+2026-02-02 13:02:46 INFO  BasePage - Ending of clickOnEmployeeButton method
+2026-02-02 13:02:46 INFO  BasePage - Starting of enterAddress method
+2026-02-02 13:02:46 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:46 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:46 INFO  BasePage - Ending of enterAddress method
+2026-02-02 13:02:46 INFO  BasePage - Starting of clickOnSelectCity method
+2026-02-02 13:02:46 INFO  BasePage - Starting of click method
+2026-02-02 13:02:47 INFO  BasePage - Ending of click method
+2026-02-02 13:02:47 INFO  BasePage - Ending of clickOnSelectCity method
+2026-02-02 13:02:47 INFO  BasePage - Starting of clickOnIndia method
+2026-02-02 13:02:47 INFO  BasePage - Starting of click method
+2026-02-02 13:02:47 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:47 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:47 INFO  BasePage - Ending of click method
+2026-02-02 13:02:47 INFO  BasePage - Ending of clickOnIndia method
+2026-02-02 13:02:47 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:47 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:47 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:47 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:47 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:47 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:47 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:47 INFO  BasePage - Starting of click method
+2026-02-02 13:02:47 INFO  BasePage - Ending of click method
+2026-02-02 13:02:47 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:47 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:47 INFO  BasePage - Starting of click method
+2026-02-02 13:02:47 INFO  BasePage - Ending of click method
+2026-02-02 13:02:47 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:47 INFO  BaseTest - Ending of setup method
+2026-02-02 13:02:47 INFO  Listeners - Test Started  : A_testVaildEmployeeDetails
+2026-02-02 13:02:47 INFO  BaseTest - Starting of testVaildEmployeeDetails method
+2026-02-02 13:02:47 INFO  BasePage - Starting of getWelcomeToJalaAcademy method
+2026-02-02 13:02:47 INFO  BasePage - Ending of getWelcomeToJalaAcademy method
+2026-02-02 13:02:47 INFO  BasePage - Starting of getText method
+2026-02-02 13:02:47 INFO  BasePage - Ending of getText method
+2026-02-02 13:02:48 INFO  BasePage - Starting of clickOnEmployeeButton method
+2026-02-02 13:02:50 INFO  BasePage - Starting of clickOnSelectCity method
+2026-02-02 13:02:50 INFO  BasePage - Starting of click method
+2026-02-02 13:02:50 INFO  BasePage - Starting of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of clickOnEmployeeButton method
+2026-02-02 13:02:50 INFO  BasePage - Starting of clickOnCreateButton method
+2026-02-02 13:02:50 INFO  BasePage - Ending of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of clickOnSelectCity method
+2026-02-02 13:02:50 INFO  BasePage - Starting of clickOnHyderabad method
+2026-02-02 13:02:50 INFO  BasePage - Starting of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of clickOnHyderabad method
+2026-02-02 13:02:50 INFO  BasePage - Starting of clickOnQaAutomation method
+2026-02-02 13:02:50 INFO  BasePage - Starting of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of clickOnQaAutomation method
+2026-02-02 13:02:50 INFO  BasePage - Starting of clickOnIndia method
+2026-02-02 13:02:50 INFO  BasePage - Starting of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of click method
+2026-02-02 13:02:50 INFO  BasePage - Ending of clickOnIndia method
+2026-02-02 13:02:50 INFO  BaseTest - Ending of testVaildEmployeeDetails method
+2026-02-02 13:02:50 INFO  Listeners - Test PassedA_testVaildEmployeeDetails
+]]></system-out>
+  </testcase>
+  <testcase name="A_testVaildEmployeeDetails" classname="com.jalaAcademy.automation.EmployeeDetailsTest" time="2.978">
+    <system-out><![CDATA[2026-02-02 13:02:51 INFO  BaseTest - Starting of setup method
+2026-02-02 13:02:52 INFO  BasePage - Starting of click method
+2026-02-02 13:02:52 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:02:52 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:02:52 INFO  BasePage - Starting of EmployeeDetails constructor
+2026-02-02 13:02:52 INFO  BasePage - Ending of EmployeeDetails constructor
+2026-02-02 13:02:52 INFO  BasePage - Starting of SearchEmployee method
+2026-02-02 13:02:52 INFO  BasePage - Ending of SearchEmployee method
+2026-02-02 13:02:53 INFO  BasePage - Ending of click method
+2026-02-02 13:02:53 INFO  BasePage - Ending of clickOnCreateButton method
+2026-02-02 13:02:53 INFO  BasePage - Starting of enterFirstName method
+2026-02-02 13:02:53 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of enterFirstName method
+2026-02-02 13:02:53 INFO  BasePage - Starting of enterFirstName method
+2026-02-02 13:02:53 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of enterFirstName method
+2026-02-02 13:02:53 INFO  BasePage - Starting of enterEmailId method
+2026-02-02 13:02:53 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of enterEmailId method
+2026-02-02 13:02:53 INFO  BasePage - Starting of enterMobileNumber method
+2026-02-02 13:02:53 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of enterMobileNumber method
+2026-02-02 13:02:53 INFO  BasePage - Starting of enterDateOfBirth method
+2026-02-02 13:02:53 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:53 INFO  BasePage - Ending of enterDateOfBirth method
+2026-02-02 13:02:53 INFO  BasePage - Starting of clickOnEmployeeButton method
+2026-02-02 13:02:54 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:02:54 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:54 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:54 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:02:54 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:02:54 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:54 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:54 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:02:54 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:02:54 INFO  BasePage - Starting of click method
+2026-02-02 13:02:54 INFO  BasePage - Ending of click method
+2026-02-02 13:02:54 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:02:54 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:02:54 INFO  BasePage - Starting of click method
+2026-02-02 13:02:54 INFO  BasePage - Ending of click method
+2026-02-02 13:02:54 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:02:54 INFO  BasePage - Starting of clickOnEmployeeButton method
+2026-02-02 13:02:55 INFO  BasePage - Starting of click method
+2026-02-02 13:02:55 INFO  BasePage - Ending of click method
+2026-02-02 13:02:55 INFO  BasePage - Ending of clickOnEmployeeButton method
+2026-02-02 13:02:55 INFO  BasePage - Starting of enterAddress method
+2026-02-02 13:02:55 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:02:55 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:02:55 INFO  BasePage - Ending of enterAddress method
+2026-02-02 13:02:55 INFO  BasePage - Starting of clickOnSelectCity method
+2026-02-02 13:02:55 INFO  BasePage - Starting of click method
+2026-02-02 13:02:56 INFO  BasePage - Ending of click method
+2026-02-02 13:02:56 INFO  BasePage - Ending of clickOnSelectCity method
+2026-02-02 13:02:56 INFO  BasePage - Starting of clickOnIndia method
+2026-02-02 13:02:56 INFO  BasePage - Starting of click method
+2026-02-02 13:02:56 INFO  BasePage - Ending of click method
+2026-02-02 13:02:56 INFO  BasePage - Ending of clickOnIndia method
+2026-02-02 13:02:56 INFO  BasePage - Starting of click method
+2026-02-02 13:02:57 INFO  BasePage - Ending of click method
+2026-02-02 13:02:57 INFO  BasePage - Ending of clickOnEmployeeButton method
+2026-02-02 13:02:57 INFO  BaseTest - Ending of setup method
+2026-02-02 13:02:57 INFO  Listeners - Test Started  : A_testSearchEmployee
+2026-02-02 13:02:57 INFO  BaseTest - Starting of testSearchEmployee method
+2026-02-02 13:02:59 INFO  BasePage - Starting of clickOnSelectCity method
+2026-02-02 13:02:59 INFO  BasePage - Starting of click method
+2026-02-02 13:02:59 INFO  BasePage - Ending of click method
+2026-02-02 13:02:59 INFO  BasePage - Ending of clickOnSelectCity method
+2026-02-02 13:02:59 INFO  BasePage - Starting of clickOnHyderabad method
+2026-02-02 13:02:59 INFO  BasePage - Starting of click method
+2026-02-02 13:02:59 INFO  BasePage - Ending of click method
+2026-02-02 13:02:59 INFO  BasePage - Ending of clickOnHyderabad method
+2026-02-02 13:02:59 INFO  BasePage - Starting of clickOnQaAutomation method
+2026-02-02 13:02:59 INFO  BasePage - Starting of click method
+2026-02-02 13:03:00 INFO  BasePage - Ending of click method
+2026-02-02 13:03:00 INFO  BasePage - Ending of clickOnQaAutomation method
+2026-02-02 13:03:00 INFO  BasePage - Starting of clickOnIndia method
+2026-02-02 13:03:00 INFO  BasePage - Starting of click method
+2026-02-02 13:03:00 INFO  BasePage - Ending of click method
+2026-02-02 13:03:00 INFO  BasePage - Ending of clickOnIndia method
+2026-02-02 13:03:00 INFO  BaseTest - Ending of testVaildEmployeeDetails method
+2026-02-02 13:03:00 INFO  Listeners - Test PassedA_testVaildEmployeeDetails
+]]></system-out>
+    <system-err><![CDATA[Feb 02, 2026 1:02:52 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 144, returning the closest version; found: 142; Please update to a Selenium version that supports CDP version 144
+]]></system-err>
+  </testcase>
+  <testcase name="A_testSearchEmployee" classname="com.jalaAcademy.automation.SearchEmployeeTest" time="7.691">
+    <system-out><![CDATA[2026-02-02 13:03:00 INFO  BasePage - Starting of clickOnSearch method
+2026-02-02 13:03:00 INFO  BasePage - Starting of click method
+2026-02-02 13:03:01 INFO  BasePage - Ending of click method
+2026-02-02 13:03:01 INFO  BasePage - Ending of clickOnSearch method
+2026-02-02 13:03:01 INFO  BasePage - Starting of enterEmployeeName method
+2026-02-02 13:03:01 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:01 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:01 INFO  BasePage - Ending of enterEmployeeName method
+2026-02-02 13:03:01 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:01 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:01 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:01 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:01 INFO  BasePage - Starting of clickOnSearch1 method
+2026-02-02 13:03:01 INFO  BasePage - Starting of click method
+2026-02-02 13:03:01 INFO  BasePage - Ending of click method
+2026-02-02 13:03:01 INFO  BasePage - Ending of setup method
+2026-02-02 13:03:02 INFO  BaseTest - Starting of setup method
+2026-02-02 13:03:04 INFO  BaseTest - Ending of testSearchEmployee method
+2026-02-02 13:03:04 INFO  Listeners - Test PassedA_testSearchEmployee
+]]></system-out>
+  </testcase>
+  <testcase name="A_testSearchEmployee" classname="com.jalaAcademy.automation.SearchEmployeeTest" time="1.488">
+    <system-out><![CDATA[2026-02-02 13:03:21 INFO  BaseTest - Starting of setup method
+2026-02-02 13:03:22 INFO  BaseTest - Ending of testSearchEmployee method
+2026-02-02 13:03:22 INFO  Listeners - Test PassedA_testSearchEmployee
+]]></system-out>
+  </testcase>
+  <testcase name="A_testMenu" classname="com.jalaAcademy.automation.MenuTest" time="0.184">
+    <system-out><![CDATA[2026-02-02 13:03:05 INFO  BaseTest - Starting of setup method
+2026-02-02 13:03:06 INFO  BasePage - Starting of MenuPage constructor
+2026-02-02 13:03:06 INFO  BasePage - Ending of MenuPage constructor
+2026-02-02 13:03:06 INFO  BasePage - Starting of HomePage constructor
+2026-02-02 13:03:06 INFO  BasePage - Ending of HomePage constructor
+2026-02-02 13:03:06 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:03:06 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:03:07 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:03:07 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:08 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:08 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:03:08 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:08 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:08 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:08 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:08 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:03:08 INFO  BasePage - Starting of click method
+2026-02-02 13:03:08 INFO  BasePage - Ending of click method
+2026-02-02 13:03:08 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:03:08 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:03:08 INFO  BasePage - Starting of click method
+2026-02-02 13:03:08 INFO  BasePage - Ending of click method
+2026-02-02 13:03:08 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:03:08 INFO  BasePage - Starting of clickOnMoreButton method
+2026-02-02 13:03:09 INFO  BasePage - Ending of clickOnMoreButton method
+2026-02-02 13:03:10 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:03:10 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:03:10 INFO  BasePage - Starting of EmployeeDetails constructor
+2026-02-02 13:03:10 INFO  BasePage - Ending of EmployeeDetails constructor
+2026-02-02 13:03:10 INFO  BasePage - Starting of SearchEmployee method
+2026-02-02 13:03:10 INFO  BasePage - Ending of SearchEmployee method
+2026-02-02 13:03:12 INFO  BasePage - Starting of clickOnMenuButton method
+2026-02-02 13:03:12 INFO  BasePage - Starting of click method
+2026-02-02 13:03:12 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:03:12 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:12 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:12 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:03:12 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:12 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:12 INFO  BasePage - Ending of click method
+2026-02-02 13:03:12 INFO  BasePage - Ending of clickOnMenuButton method
+2026-02-02 13:03:12 INFO  BaseTest - Ending of setup method
+2026-02-02 13:03:12 INFO  Listeners - Test Started  : A_testMenu
+2026-02-02 13:03:12 INFO  BaseTest - Starting of testMenu method
+2026-02-02 13:03:12 INFO  BasePage - Starting of clickOnSubMenuButton method
+2026-02-02 13:03:12 INFO  BasePage - Starting of click method
+2026-02-02 13:03:12 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:12 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:12 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:03:12 INFO  BasePage - Starting of click method
+2026-02-02 13:03:13 INFO  BasePage - Ending of click method
+2026-02-02 13:03:13 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:03:13 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:03:13 INFO  BasePage - Starting of click method
+2026-02-02 13:03:13 INFO  BasePage - Ending of click method
+2026-02-02 13:03:13 INFO  BasePage - Ending of clickOnSubMenuButton method
+2026-02-02 13:03:13 INFO  BaseTest - Ending of testMenu method
+2026-02-02 13:03:13 INFO  Listeners - Test PassedA_testMenu
+]]></system-out>
+    <system-err><![CDATA[Feb 02, 2026 1:03:06 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 144, returning the closest version; found: 142; Please update to a Selenium version that supports CDP version 144
+]]></system-err>
+  </testcase>
+  <testcase name="A_testMenu" classname="com.jalaAcademy.automation.MenuTest" time="0.125">
+    <system-out><![CDATA[2026-02-02 13:03:31 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:03:31 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:32 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:32 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:03:32 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:32 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:32 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:32 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:32 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:03:32 INFO  BasePage - Starting of click method
+2026-02-02 13:03:32 INFO  BasePage - Ending of click method
+2026-02-02 13:03:32 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:03:32 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:03:32 INFO  BasePage - Starting of click method
+2026-02-02 13:03:32 INFO  BasePage - Ending of click method
+2026-02-02 13:03:32 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:03:32 INFO  BasePage - Starting of clickOnMoreButton method
+2026-02-02 13:03:32 INFO  BasePage - Ending of clickOnMoreButton method
+2026-02-02 13:03:36 INFO  BasePage - Starting of clickOnMenuButton method
+2026-02-02 13:03:36 INFO  BasePage - Starting of click method
+2026-02-02 13:03:36 INFO  BasePage - Ending of click method
+2026-02-02 13:03:36 INFO  BasePage - Ending of clickOnMenuButton method
+2026-02-02 13:03:36 INFO  BaseTest - Ending of setup method
+2026-02-02 13:03:36 INFO  Listeners - Test Started  : A_testMenu
+2026-02-02 13:03:36 INFO  BaseTest - Starting of testMenu method
+2026-02-02 13:03:36 INFO  BasePage - Starting of clickOnSubMenuButton method
+2026-02-02 13:03:36 INFO  BasePage - Starting of click method
+2026-02-02 13:03:36 INFO  BasePage - Ending of click method
+2026-02-02 13:03:36 INFO  BasePage - Ending of clickOnSubMenuButton method
+2026-02-02 13:03:36 INFO  BaseTest - Ending of testMenu method
+2026-02-02 13:03:36 INFO  Listeners - Test PassedA_testMenu
+]]></system-out>
+  </testcase>
+  <testcase name="A_testIframe" classname="com.jalaAcademy.automation.IframeTest" time="0.2">
+    <system-out><![CDATA[2026-02-02 13:03:13 INFO  BasePage - Ending of click method
+2026-02-02 13:03:13 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:03:13 INFO  BasePage - Starting of clickOnEmployeeButton method
+2026-02-02 13:03:13 INFO  BaseTest - Starting of setup method
+2026-02-02 13:03:14 INFO  BasePage - Starting of IframePage constructor
+2026-02-02 13:03:14 INFO  BasePage - Ending of IframePage constructor
+2026-02-02 13:03:14 INFO  BasePage - Starting of HomePage constructor
+2026-02-02 13:03:14 INFO  BasePage - Ending of HomePage constructor
+2026-02-02 13:03:14 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:03:14 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:03:15 INFO  BasePage - Starting of click method
+2026-02-02 13:03:15 INFO  BasePage - Ending of click method
+2026-02-02 13:03:15 INFO  BasePage - Ending of clickOnEmployeeButton method
+2026-02-02 13:03:15 INFO  BaseTest - Ending of setup method
+2026-02-02 13:03:15 INFO  Listeners - Test Started  : A_testSearchEmployee
+2026-02-02 13:03:15 INFO  BaseTest - Starting of testSearchEmployee method
+2026-02-02 13:03:15 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:03:15 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:15 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:15 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:03:15 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:15 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:15 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:15 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:15 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:03:15 INFO  BasePage - Starting of click method
+2026-02-02 13:03:16 INFO  BasePage - Ending of click method
+2026-02-02 13:03:16 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:03:16 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:03:16 INFO  BasePage - Starting of click method
+2026-02-02 13:03:16 INFO  BasePage - Ending of click method
+2026-02-02 13:03:16 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:03:16 INFO  BasePage - Starting of clickOnMoreButton method
+2026-02-02 13:03:16 INFO  BasePage - Ending of clickOnMoreButton method
+2026-02-02 13:03:18 INFO  BasePage - Starting of clickOnSearch method
+2026-02-02 13:03:18 INFO  BasePage - Starting of click method
+2026-02-02 13:03:19 INFO  BasePage - Ending of click method
+2026-02-02 13:03:19 INFO  BasePage - Ending of clickOnSearch method
+2026-02-02 13:03:19 INFO  BasePage - Starting of enterEmployeeName method
+2026-02-02 13:03:19 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:19 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:19 INFO  BasePage - Ending of enterEmployeeName method
+2026-02-02 13:03:19 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:19 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:19 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:19 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:19 INFO  BasePage - Starting of clickOnSearch1 method
+2026-02-02 13:03:19 INFO  BasePage - Starting of click method
+2026-02-02 13:03:19 INFO  BasePage - Ending of click method
+2026-02-02 13:03:19 INFO  BasePage - Ending of setup method
+2026-02-02 13:03:19 INFO  BasePage - Starting of clickOnMenuButton method
+2026-02-02 13:03:19 INFO  BasePage - Starting of click method
+2026-02-02 13:03:20 INFO  BasePage - Ending of click method
+2026-02-02 13:03:20 INFO  BasePage - Ending of clickOnMenuButton method
+2026-02-02 13:03:20 INFO  BasePage - Starting of clickOnIframeButton method
+2026-02-02 13:03:20 INFO  BasePage - Starting of click method
+2026-02-02 13:03:21 INFO  BasePage - Ending of click method
+2026-02-02 13:03:21 INFO  BasePage - Ending of clickOnIframeButton method
+2026-02-02 13:03:21 INFO  BaseTest - Ending of setup method
+2026-02-02 13:03:21 INFO  Listeners - Test Started  : A_testIframe
+2026-02-02 13:03:21 INFO  BaseTest - Starting of testIframe method
+2026-02-02 13:03:21 INFO  BasePage - Starting of getFrameOneText method
+2026-02-02 13:03:21 INFO  BasePage - Ending of getFrameOneText method
+2026-02-02 13:03:21 INFO  BasePage - Starting of getText method
+2026-02-02 13:03:21 INFO  BasePage - Ending of getText method
+2026-02-02 13:03:21 INFO  BasePage - Starting of getFrameTwoText method
+2026-02-02 13:03:21 INFO  BasePage - Ending of getFrameTwoText method
+2026-02-02 13:03:21 INFO  BasePage - Starting of getText method
+2026-02-02 13:03:21 INFO  BasePage - Ending of getText method
+2026-02-02 13:03:21 INFO  BasePage - Starting of getWelcomeToJalaAcademyText method
+2026-02-02 13:03:21 INFO  BasePage - Ending of getWelcomeToJalaAcademyText method
+2026-02-02 13:03:21 INFO  BasePage - Starting of getText method
+2026-02-02 13:03:21 INFO  BasePage - Ending of getText method
+2026-02-02 13:03:21 INFO  BaseTest - Ending of testIframe method
+2026-02-02 13:03:21 INFO  Listeners - Test PassedA_testIframe
+]]></system-out>
+    <system-err><![CDATA[Feb 02, 2026 1:03:14 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 144, returning the closest version; found: 142; Please update to a Selenium version that supports CDP version 144
+]]></system-err>
+  </testcase>
+  <testcase name="A_testIframe" classname="com.jalaAcademy.automation.IframeTest" time="0.158">
+    <system-out><![CDATA[2026-02-02 13:03:37 INFO  BaseTest - Starting of setup method
+2026-02-02 13:03:41 INFO  BasePage - Starting of IframePage constructor
+2026-02-02 13:03:41 INFO  BasePage - Ending of IframePage constructor
+2026-02-02 13:03:41 INFO  BasePage - Starting of HomePage constructor
+2026-02-02 13:03:41 INFO  BasePage - Ending of HomePage constructor
+2026-02-02 13:03:41 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:03:41 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:03:42 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:03:42 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:42 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:42 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:03:42 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:42 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:42 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:42 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:42 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:03:42 INFO  BasePage - Starting of click method
+2026-02-02 13:03:42 INFO  BasePage - Ending of click method
+2026-02-02 13:03:42 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:03:42 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:03:42 INFO  BasePage - Starting of click method
+2026-02-02 13:03:42 INFO  BasePage - Ending of click method
+2026-02-02 13:03:42 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:03:42 INFO  BasePage - Starting of clickOnMoreButton method
+2026-02-02 13:03:43 INFO  BasePage - Ending of clickOnMoreButton method
+2026-02-02 13:03:46 INFO  BasePage - Starting of clickOnMenuButton method
+2026-02-02 13:03:46 INFO  BasePage - Starting of click method
+2026-02-02 13:03:47 INFO  BasePage - Ending of click method
+2026-02-02 13:03:47 INFO  BasePage - Ending of clickOnMenuButton method
+2026-02-02 13:03:47 INFO  BasePage - Starting of clickOnIframeButton method
+2026-02-02 13:03:47 INFO  BasePage - Starting of click method
+2026-02-02 13:03:47 INFO  BasePage - Ending of click method
+2026-02-02 13:03:47 INFO  BasePage - Ending of clickOnIframeButton method
+2026-02-02 13:03:47 INFO  BaseTest - Ending of setup method
+2026-02-02 13:03:47 INFO  Listeners - Test Started  : A_testIframe
+2026-02-02 13:03:47 INFO  BaseTest - Starting of testIframe method
+2026-02-02 13:03:47 INFO  BasePage - Starting of getFrameOneText method
+2026-02-02 13:03:47 INFO  BasePage - Ending of getFrameOneText method
+2026-02-02 13:03:47 INFO  BasePage - Starting of getText method
+2026-02-02 13:03:47 INFO  BasePage - Ending of getText method
+2026-02-02 13:03:47 INFO  BasePage - Starting of getFrameTwoText method
+2026-02-02 13:03:47 INFO  BasePage - Ending of getFrameTwoText method
+2026-02-02 13:03:47 INFO  BasePage - Starting of getText method
+2026-02-02 13:03:47 INFO  BasePage - Ending of getText method
+2026-02-02 13:03:47 INFO  BasePage - Starting of getWelcomeToJalaAcademyText method
+2026-02-02 13:03:47 INFO  BasePage - Ending of getWelcomeToJalaAcademyText method
+2026-02-02 13:03:47 INFO  BasePage - Starting of getText method
+2026-02-02 13:03:47 INFO  BasePage - Ending of getText method
+2026-02-02 13:03:47 INFO  BaseTest - Ending of testIframe method
+2026-02-02 13:03:47 INFO  Listeners - Test PassedA_testIframe
+]]></system-out>
+  </testcase>
+  <testcase name="A_testUploadImages" classname="com.jalaAcademy.automation.ImagesTest" time="2.413">
+    <system-out><![CDATA[2026-02-02 13:03:22 INFO  BasePage - Starting of ImagesPage constructor
+2026-02-02 13:03:22 INFO  BasePage - Ending of ImagesPage constructor
+2026-02-02 13:03:22 INFO  BasePage - Starting of HomePage constructor
+2026-02-02 13:03:22 INFO  BasePage - Ending of HomePage constructor
+2026-02-02 13:03:22 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:03:22 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:03:23 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:03:23 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:24 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:24 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:03:24 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:24 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:24 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:24 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:24 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:03:24 INFO  BasePage - Starting of click method
+2026-02-02 13:03:24 INFO  BasePage - Ending of click method
+2026-02-02 13:03:24 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:03:24 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:03:24 INFO  BasePage - Starting of click method
+2026-02-02 13:03:24 INFO  BaseTest - Starting of setup method
+2026-02-02 13:03:24 INFO  BasePage - Ending of click method
+2026-02-02 13:03:24 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:03:24 INFO  BasePage - Starting of clickOnMoreButton method
+2026-02-02 13:03:25 INFO  BasePage - Ending of clickOnMoreButton method
+2026-02-02 13:03:28 INFO  BasePage - Starting of clickOnImageButton method
+2026-02-02 13:03:28 INFO  BasePage - Starting of click method
+2026-02-02 13:03:28 INFO  BasePage - Ending of click method
+2026-02-02 13:03:28 INFO  BasePage - Ending of clickOnImageButton method
+2026-02-02 13:03:28 INFO  BaseTest - Ending of setup method
+2026-02-02 13:03:28 INFO  Listeners - Test Started  : A_testUploadImages
+2026-02-02 13:03:28 INFO  BaseTest - Starting of testUploadImages method
+2026-02-02 13:03:28 INFO  BasePage - Starting of uploadImage method
+2026-02-02 13:03:28 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:28 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:28 INFO  BasePage - Ending of uploadImage method
+2026-02-02 13:03:30 INFO  BasePage - Starting of MenuPage constructor
+2026-02-02 13:03:30 INFO  BasePage - Ending of MenuPage constructor
+2026-02-02 13:03:30 INFO  BasePage - Starting of HomePage constructor
+2026-02-02 13:03:30 INFO  BasePage - Ending of HomePage constructor
+2026-02-02 13:03:30 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:03:30 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:03:30 INFO  BasePage - Starting of clickOnUploadButton method
+2026-02-02 13:03:30 INFO  BasePage - Starting of click method
+2026-02-02 13:03:30 INFO  BasePage - Ending of click method
+2026-02-02 13:03:30 INFO  BasePage - Ending of clickOnUploadButton method
+2026-02-02 13:03:30 INFO  BasePage - Starting of getImageLabel method
+2026-02-02 13:03:30 INFO  BasePage - Ending of getImageLabel method
+2026-02-02 13:03:30 INFO  BasePage - Starting of getText method
+2026-02-02 13:03:30 INFO  BasePage - Ending of getText method
+2026-02-02 13:03:30 INFO  BaseTest - Ending of testUploadImages method
+2026-02-02 13:03:30 INFO  Listeners - Test PassedA_testUploadImages
+]]></system-out>
+    <system-err><![CDATA[Feb 02, 2026 1:03:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 144, returning the closest version; found: 142; Please update to a Selenium version that supports CDP version 144
+]]></system-err>
+  </testcase>
+  <testcase name="A_testUploadImages" classname="com.jalaAcademy.automation.ImagesTest" time="2.236">
+    <system-out><![CDATA[2026-02-02 13:03:49 INFO  BaseTest - Starting of setup method
+2026-02-02 13:03:53 INFO  BasePage - Starting of ImagesPage constructor
+2026-02-02 13:03:53 INFO  BasePage - Ending of ImagesPage constructor
+2026-02-02 13:03:53 INFO  BasePage - Starting of HomePage constructor
+2026-02-02 13:03:53 INFO  BasePage - Ending of HomePage constructor
+2026-02-02 13:03:53 INFO  BasePage - Starting of LoginPage constructor
+2026-02-02 13:03:53 INFO  BasePage - Ending of LoginPage constructor
+2026-02-02 13:03:54 INFO  BasePage - Starting of enterEmail method
+2026-02-02 13:03:54 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:54 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:54 INFO  BasePage - Ending of enterEmail method
+2026-02-02 13:03:54 INFO  BasePage - Starting of enterPassword method
+2026-02-02 13:03:54 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:54 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:54 INFO  BasePage - Ending of enterPassword method
+2026-02-02 13:03:54 INFO  BasePage - Starting of clickOnRememberMe method
+2026-02-02 13:03:54 INFO  BasePage - Starting of click method
+2026-02-02 13:03:54 INFO  BasePage - Ending of click method
+2026-02-02 13:03:54 INFO  BasePage - Ending of clickOnRememberMe method
+2026-02-02 13:03:54 INFO  BasePage - Starting of clickOnLoginButton method
+2026-02-02 13:03:54 INFO  BasePage - Starting of click method
+2026-02-02 13:03:54 INFO  BasePage - Ending of click method
+2026-02-02 13:03:54 INFO  BasePage - Ending of clickOnLoginButton method
+2026-02-02 13:03:54 INFO  BasePage - Starting of clickOnMoreButton method
+2026-02-02 13:03:54 INFO  BasePage - Ending of clickOnMoreButton method
+2026-02-02 13:03:57 INFO  BasePage - Starting of clickOnImageButton method
+2026-02-02 13:03:57 INFO  BasePage - Starting of click method
+2026-02-02 13:03:58 INFO  BasePage - Ending of click method
+2026-02-02 13:03:58 INFO  BasePage - Ending of clickOnImageButton method
+2026-02-02 13:03:58 INFO  BaseTest - Ending of setup method
+2026-02-02 13:03:58 INFO  Listeners - Test Started  : A_testUploadImages
+2026-02-02 13:03:58 INFO  BaseTest - Starting of testUploadImages method
+2026-02-02 13:03:58 INFO  BasePage - Starting of uploadImage method
+2026-02-02 13:03:58 INFO  BasePage - Starting of sendKeys method
+2026-02-02 13:03:58 INFO  BasePage - Ending of sendKeys method
+2026-02-02 13:03:58 INFO  BasePage - Ending of uploadImage method
+2026-02-02 13:04:00 INFO  BasePage - Starting of clickOnUploadButton method
+2026-02-02 13:04:00 INFO  BasePage - Starting of click method
+2026-02-02 13:04:00 INFO  BasePage - Ending of click method
+2026-02-02 13:04:00 INFO  BasePage - Ending of clickOnUploadButton method
+2026-02-02 13:04:00 INFO  BasePage - Starting of getImageLabel method
+2026-02-02 13:04:00 INFO  BasePage - Ending of getImageLabel method
+2026-02-02 13:04:00 INFO  BasePage - Starting of getText method
+2026-02-02 13:04:00 INFO  BasePage - Ending of getText method
+2026-02-02 13:04:00 INFO  BaseTest - Ending of testUploadImages method
+2026-02-02 13:04:00 INFO  Listeners - Test PassedA_testUploadImages
+]]></system-out>
+  </testcase>
+</testsuite>

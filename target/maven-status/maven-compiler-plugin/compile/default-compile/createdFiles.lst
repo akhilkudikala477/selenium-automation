@@ -1,0 +1,8 @@
+com\jalaAcademy\page\BasePage.class
+com\jalaAcademy\Automation\HomePage.class
+com\jalaAcademy\Automation\IframePage.class
+com\jalaAcademy\Automation\ImagesPage.class
+com\jalaAcademy\Automation\SearchEmployee.class
+com\jalaAcademy\Automation\LoginPage.class
+com\jalaAcademy\Automation\EmployeeDetails.class
+com\jalaAcademy\Automation\MenuPage.class

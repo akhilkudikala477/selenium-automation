@@ -3,6 +3,8 @@
 <suite name="Suite" parallel="tests" thread-count="2">
 	<listeners>
 		<listener class-name="com.jalaAcademy.utils.Listeners"></listener>
+		 <!--   <listener class-name="io.qameta.allure.testng.AllureTestNg"/>-->
+
 	</listeners>
 	<test name="Chrome test">
 		<parameter name="browser" value="chrome"></parameter>

@@ -1,0 +1,9 @@
+com\jalaAcademy\utils\ScreenshotUtil.class
+com\jalaAcademy\automation\LoginTest.class
+com\jalaAcademy\automation\SearchEmployeeTest.class
+com\jalaAcademy\base\BaseTest.class
+com\jalaAcademy\automation\EmployeeDetailsTest.class
+com\jalaAcademy\utils\Listeners.class
+com\jalaAcademy\automation\IframeTest.class
+com\jalaAcademy\automation\ImagesTest.class
+com\jalaAcademy\automation\MenuTest.class

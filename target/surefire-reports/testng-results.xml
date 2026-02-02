@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="18" passed="18" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-02-02T13:02:26 IST" name="Suite" finished-at="2026-02-02T13:04:01 IST" duration-ms="95656">
+    <groups>
+    </groups>
+    <test started-at="2026-02-02T13:02:26 IST" name="Chrome test" finished-at="2026-02-02T13:03:31 IST" duration-ms="65242">
+      <class name="com.jalaAcademy.automation.IframeTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.IframeTest@abad89c]" started-at="2026-02-02T13:03:13 IST" name="setup" finished-at="2026-02-02T13:03:21 IST" duration-ms="7712" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testIframe()[pri:0, instance:com.jalaAcademy.automation.IframeTest@abad89c]" started-at="2026-02-02T13:03:21 IST" name="A_testIframe" description="Verify that the application allows switching to iframe and performing actions inside it" finished-at="2026-02-02T13:03:21 IST" duration-ms="201" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testIframe -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.IframeTest@abad89c]" started-at="2026-02-02T13:03:21 IST" name="quit" finished-at="2026-02-02T13:03:21 IST" duration-ms="268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.IframeTest -->
+      <class name="com.jalaAcademy.automation.EmployeeDetailsTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.EmployeeDetailsTest@6eb089e6]" started-at="2026-02-02T13:02:34 IST" name="setup" finished-at="2026-02-02T13:02:38 IST" duration-ms="4252" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testVaildEmployeeDetails()[pri:0, instance:com.jalaAcademy.automation.EmployeeDetailsTest@6eb089e6]" started-at="2026-02-02T13:02:38 IST" name="A_testVaildEmployeeDetails" description="Verify that admin can create a new employee with valid mandatory information" finished-at="2026-02-02T13:02:50 IST" duration-ms="12450" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testVaildEmployeeDetails -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.EmployeeDetailsTest@6eb089e6]" started-at="2026-02-02T13:02:50 IST" name="quit" finished-at="2026-02-02T13:02:51 IST" duration-ms="302" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.EmployeeDetailsTest -->
+      <class name="com.jalaAcademy.automation.MenuTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.MenuTest@3bc69ce9]" started-at="2026-02-02T13:03:05 IST" name="setup" finished-at="2026-02-02T13:03:12 IST" duration-ms="7519" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testMenu()[pri:0, instance:com.jalaAcademy.automation.MenuTest@3bc69ce9]" started-at="2026-02-02T13:03:12 IST" name="A_testMenu" description="Verify that all menu items redirect to the correct modules" finished-at="2026-02-02T13:03:13 IST" duration-ms="177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testMenu -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.MenuTest@3bc69ce9]" started-at="2026-02-02T13:03:13 IST" name="quit" finished-at="2026-02-02T13:03:13 IST" duration-ms="226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.MenuTest -->
+      <class name="com.jalaAcademy.automation.SearchEmployeeTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.SearchEmployeeTest@715a70e9]" started-at="2026-02-02T13:02:51 IST" name="setup" finished-at="2026-02-02T13:02:57 IST" duration-ms="6020" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testSearchEmployee()[pri:0, instance:com.jalaAcademy.automation.SearchEmployeeTest@715a70e9]" started-at="2026-02-02T13:02:57 IST" name="A_testSearchEmployee" description="Verify that the search employee feature returns accurate results based on search input" finished-at="2026-02-02T13:03:04 IST" duration-ms="7688" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testSearchEmployee -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.SearchEmployeeTest@715a70e9]" started-at="2026-02-02T13:03:04 IST" name="quit" finished-at="2026-02-02T13:03:05 IST" duration-ms="468" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.SearchEmployeeTest -->
+      <class name="com.jalaAcademy.automation.ImagesTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.ImagesTest@602f8f94]" started-at="2026-02-02T13:03:21 IST" name="setup" finished-at="2026-02-02T13:03:28 IST" duration-ms="7067" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testUploadImages()[pri:0, instance:com.jalaAcademy.automation.ImagesTest@602f8f94]" started-at="2026-02-02T13:03:28 IST" name="A_testUploadImages" description="Verify that the application allows switching to iframe and performing actions inside it" finished-at="2026-02-02T13:03:30 IST" duration-ms="2405" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testUploadImages -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.ImagesTest@602f8f94]" started-at="2026-02-02T13:03:30 IST" name="quit" finished-at="2026-02-02T13:03:31 IST" duration-ms="398" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.ImagesTest -->
+      <class name="com.jalaAcademy.automation.LoginTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.LoginTest@61ffd148]" started-at="2026-02-02T13:02:26 IST" name="setup" finished-at="2026-02-02T13:02:30 IST" duration-ms="4433" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_TestInvaildLogin()[pri:0, instance:com.jalaAcademy.automation.LoginTest@61ffd148]" started-at="2026-02-02T13:02:30 IST" name="A_TestInvaildLogin" description="Verify that the user can log in with vaild UserName and Invalid Password" finished-at="2026-02-02T13:02:31 IST" duration-ms="929" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_TestInvaildLogin -->
+        <test-method signature="B_TestInvaildLogin2()[pri:0, instance:com.jalaAcademy.automation.LoginTest@61ffd148]" started-at="2026-02-02T13:02:32 IST" name="B_TestInvaildLogin2" description="Verify that the user can log in with Invalid UserName and Password" finished-at="2026-02-02T13:02:32 IST" duration-ms="659" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- B_TestInvaildLogin2 -->
+        <test-method signature="C_TestInvaildLogin3()[pri:0, instance:com.jalaAcademy.automation.LoginTest@61ffd148]" started-at="2026-02-02T13:02:32 IST" name="C_TestInvaildLogin3" description="Verify that the user can log in without credentials" finished-at="2026-02-02T13:02:33 IST" duration-ms="481" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- C_TestInvaildLogin3 -->
+        <test-method signature="D_testVaildLogin4()[pri:0, instance:com.jalaAcademy.automation.LoginTest@61ffd148]" started-at="2026-02-02T13:02:33 IST" name="D_testVaildLogin4" description="Verify that the user can log in with valid credentials" finished-at="2026-02-02T13:02:33 IST" duration-ms="628" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- D_testVaildLogin4 -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.LoginTest@61ffd148]" started-at="2026-02-02T13:02:33 IST" name="quit" finished-at="2026-02-02T13:02:34 IST" duration-ms="212" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.LoginTest -->
+    </test> <!-- Chrome test -->
+    <test started-at="2026-02-02T13:02:26 IST" name="Firefox" finished-at="2026-02-02T13:04:01 IST" duration-ms="95656">
+      <class name="com.jalaAcademy.automation.IframeTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.IframeTest@7730ef88]" started-at="2026-02-02T13:03:37 IST" name="setup" finished-at="2026-02-02T13:03:47 IST" duration-ms="9894" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testIframe()[pri:0, instance:com.jalaAcademy.automation.IframeTest@7730ef88]" started-at="2026-02-02T13:03:47 IST" name="A_testIframe" description="Verify that the application allows switching to iframe and performing actions inside it" finished-at="2026-02-02T13:03:47 IST" duration-ms="144" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testIframe -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.IframeTest@7730ef88]" started-at="2026-02-02T13:03:47 IST" name="quit" finished-at="2026-02-02T13:03:49 IST" duration-ms="1359" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.IframeTest -->
+      <class name="com.jalaAcademy.automation.EmployeeDetailsTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.EmployeeDetailsTest@64bebd55]" started-at="2026-02-02T13:02:40 IST" name="setup" finished-at="2026-02-02T13:02:47 IST" duration-ms="7243" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testVaildEmployeeDetails()[pri:0, instance:com.jalaAcademy.automation.EmployeeDetailsTest@64bebd55]" started-at="2026-02-02T13:02:47 IST" name="A_testVaildEmployeeDetails" description="Verify that admin can create a new employee with valid mandatory information" finished-at="2026-02-02T13:03:00 IST" duration-ms="12339" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testVaildEmployeeDetails -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.EmployeeDetailsTest@64bebd55]" started-at="2026-02-02T13:03:00 IST" name="quit" finished-at="2026-02-02T13:03:02 IST" duration-ms="2253" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.EmployeeDetailsTest -->
+      <class name="com.jalaAcademy.automation.MenuTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.MenuTest@3730f716]" started-at="2026-02-02T13:03:24 IST" name="setup" finished-at="2026-02-02T13:03:36 IST" duration-ms="11878" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testMenu()[pri:0, instance:com.jalaAcademy.automation.MenuTest@3730f716]" started-at="2026-02-02T13:03:36 IST" name="A_testMenu" description="Verify that all menu items redirect to the correct modules" finished-at="2026-02-02T13:03:36 IST" duration-ms="99" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testMenu -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.MenuTest@3730f716]" started-at="2026-02-02T13:03:36 IST" name="quit" finished-at="2026-02-02T13:03:37 IST" duration-ms="1275" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.MenuTest -->
+      <class name="com.jalaAcademy.automation.SearchEmployeeTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.SearchEmployeeTest@7c1a8f0f]" started-at="2026-02-02T13:03:02 IST" name="setup" finished-at="2026-02-02T13:03:15 IST" duration-ms="12866" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testSearchEmployee()[pri:0, instance:com.jalaAcademy.automation.SearchEmployeeTest@7c1a8f0f]" started-at="2026-02-02T13:03:15 IST" name="A_testSearchEmployee" description="Verify that the search employee feature returns accurate results based on search input" finished-at="2026-02-02T13:03:22 IST" duration-ms="7167" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testSearchEmployee -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.SearchEmployeeTest@7c1a8f0f]" started-at="2026-02-02T13:03:22 IST" name="quit" finished-at="2026-02-02T13:03:24 IST" duration-ms="2086" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.SearchEmployeeTest -->
+      <class name="com.jalaAcademy.automation.ImagesTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.ImagesTest@66f5a02e]" started-at="2026-02-02T13:03:49 IST" name="setup" finished-at="2026-02-02T13:03:58 IST" duration-ms="9053" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_testUploadImages()[pri:0, instance:com.jalaAcademy.automation.ImagesTest@66f5a02e]" started-at="2026-02-02T13:03:58 IST" name="A_testUploadImages" description="Verify that the application allows switching to iframe and performing actions inside it" finished-at="2026-02-02T13:04:00 IST" duration-ms="2235" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_testUploadImages -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.ImagesTest@66f5a02e]" started-at="2026-02-02T13:04:00 IST" name="quit" finished-at="2026-02-02T13:04:01 IST" duration-ms="1202" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.ImagesTest -->
+      <class name="com.jalaAcademy.automation.LoginTest">
+        <test-method is-config="true" signature="loadPropertyFiles()[pri:0, instance:com.jalaAcademy.automation.LoginTest@6b357eb6]" started-at="2026-02-02T13:02:26 IST" name="loadPropertyFiles" finished-at="2026-02-02T13:02:26 IST" duration-ms="40" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loadPropertyFiles -->
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.jalaAcademy.automation.LoginTest@6b357eb6]" started-at="2026-02-02T13:02:26 IST" name="setup" finished-at="2026-02-02T13:02:35 IST" duration-ms="9650" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://magnus.jalatechnologies.com/Account/Login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="A_TestInvaildLogin()[pri:0, instance:com.jalaAcademy.automation.LoginTest@6b357eb6]" started-at="2026-02-02T13:02:35 IST" name="A_TestInvaildLogin" description="Verify that the user can log in with vaild UserName and Invalid Password" finished-at="2026-02-02T13:02:36 IST" duration-ms="1103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_TestInvaildLogin -->
+        <test-method signature="B_TestInvaildLogin2()[pri:0, instance:com.jalaAcademy.automation.LoginTest@6b357eb6]" started-at="2026-02-02T13:02:36 IST" name="B_TestInvaildLogin2" description="Verify that the user can log in with Invalid UserName and Password" finished-at="2026-02-02T13:02:37 IST" duration-ms="716" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- B_TestInvaildLogin2 -->
+        <test-method signature="C_TestInvaildLogin3()[pri:0, instance:com.jalaAcademy.automation.LoginTest@6b357eb6]" started-at="2026-02-02T13:02:37 IST" name="C_TestInvaildLogin3" description="Verify that the user can log in without credentials" finished-at="2026-02-02T13:02:38 IST" duration-ms="444" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- C_TestInvaildLogin3 -->
+        <test-method signature="D_testVaildLogin4()[pri:0, instance:com.jalaAcademy.automation.LoginTest@6b357eb6]" started-at="2026-02-02T13:02:38 IST" name="D_testVaildLogin4" description="Verify that the user can log in with valid credentials" finished-at="2026-02-02T13:02:38 IST" duration-ms="363" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- D_testVaildLogin4 -->
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.jalaAcademy.automation.LoginTest@6b357eb6]" started-at="2026-02-02T13:02:38 IST" name="quit" finished-at="2026-02-02T13:02:40 IST" duration-ms="2137" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.jalaAcademy.automation.LoginTest -->
+    </test> <!-- Firefox -->
+  </suite> <!-- Suite -->
+</testng-results>
