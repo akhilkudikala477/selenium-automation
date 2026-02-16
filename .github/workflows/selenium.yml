@@ -1,4 +1,4 @@
-name: Selenium Tests (manual run only + choice params)
+name: Selenium Tests + Allure Report + Email
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
           - firefox
 
       suite:
-        description: 'Select suite (value corresponds to your pom property ${suiteXmlFile})'
+        description: 'Select suite'
         required: true
         default: 'testng_sanity'
         type: choice
@@ -21,114 +21,113 @@ on:
           - testng_sanity
           - testng_regression
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-
-    env:
-      CI: true
 
     steps:
 
-      # Checkout code
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    # Checkout
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
+    # Cache Maven
+    - name: Cache Maven repository
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
 
-      # Cache Maven dependencies
-      - name: Cache Maven local repository
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-m2-
+    # Setup Java
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 17
 
+    # Install Chrome
+    - name: Setup Chrome
+      if: ${{ github.event.inputs.browser == 'chrome' }}
+      uses: browser-actions/setup-chrome@v1
 
-      # Setup Java
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
+    # Install Firefox
+    - name: Setup Firefox
+      if: ${{ github.event.inputs.browser == 'firefox' }}
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y firefox
 
+    # Run tests
+    - name: Run Selenium Tests
+      run: |
+        mvn clean test \
+        -Dbrowser=${{ github.event.inputs.browser }} \
+        -DsuiteXmlFile=${{ github.event.inputs.suite }}
 
-      # Setup Chrome
-      - name: Setup Google Chrome
-        if: ${{ github.event.inputs.browser == 'chrome' }}
-        uses: browser-actions/setup-chrome@v1
+    # Install Allure
+    - name: Install Allure
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y allure
 
+    # Generate Allure Report
+    - name: Generate Allure Report
+      run: |
+        allure generate target/allure-results --clean -o allure-report
 
-      # Setup Firefox
-      - name: Install Firefox
-        if: ${{ github.event.inputs.browser == 'firefox' }}
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y firefox
+    # Deploy Allure Report to GitHub Pages
+    - name: Deploy report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-report
 
+    # Upload artifacts
+    - name: Upload Allure Results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-results
+        path: target/allure-results
 
-      # Verify versions
-      - name: Show Java & Maven versions
-        run: |
-          java -version
-          mvn -version
+    # Send Email
+    - name: Send Email with Allure Report Link
+      if: always()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
 
+        subject: Selenium Test Result: ${{ job.status }}
 
-      # Run tests
-      - name: Run Maven tests
-        run: |
-          mvn --batch-mode clean test \
-          -Dbrowser=${{ github.event.inputs.browser }} \
-          -DsuiteXmlFile=${{ github.event.inputs.suite }}
+        to: ${{ secrets.EMAIL_TO }}
+        from: Selenium Automation
 
+        html_body: |
+          <h2>Selenium Test Execution: ${{ job.status }}</h2>
 
-      # Upload Surefire reports
-      - name: Upload Surefire reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: surefire-reports
-          path: target/surefire-reports
+          <p><b>Browser:</b> ${{ github.event.inputs.browser }}</p>
+          <p><b>Suite:</b> ${{ github.event.inputs.suite }}</p>
 
+          <h3>View Allure Report:</h3>
 
-      # Upload Allure results
-      - name: Upload Allure results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: target/allure-results
+          <a href="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/">
+          Click here to open Allure Report
+          </a>
 
+          <br><br>
 
-      # Send Email Notification (SUCCESS + FAILURE)
-      - name: Send Email Notification
-        if: always()
-        uses: dawidd6/action-send-mail@v3
-        with:
+          <p>GitHub Run:</p>
 
-          server_address: smtp.gmail.com
-          server_port: 465
-
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-
-          subject: |
-            Selenium Execution ${{ job.status }} | Browser: ${{ github.event.inputs.browser }} | Suite: ${{ github.event.inputs.suite }}
-
-          body: |
-            Selenium Automation Execution Result: ${{ job.status }}
-
-            Repository: ${{ github.repository }}
-            Branch: ${{ github.ref_name }}
-            Triggered by: ${{ github.actor }}
-
-            Browser: ${{ github.event.inputs.browser }}
-            Suite: ${{ github.event.inputs.suite }}
-
-            View Full Report:
-            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-          to: your_email@gmail.com
-          from: ${{ secrets.EMAIL_USERNAME }}
+          <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">
+          View GitHub Action Run
+          </a>
