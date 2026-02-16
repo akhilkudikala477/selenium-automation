@@ -32,63 +32,55 @@ jobs:
 
     steps:
 
-    # Checkout
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # Cache Maven
     - name: Cache Maven repository
       uses: actions/cache@v4
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
 
-    # Setup Java
     - name: Setup Java
       uses: actions/setup-java@v4
       with:
         distribution: temurin
         java-version: 17
 
-    # Install Chrome
     - name: Setup Chrome
       if: ${{ github.event.inputs.browser == 'chrome' }}
       uses: browser-actions/setup-chrome@v1
 
-    # Install Firefox
     - name: Setup Firefox
       if: ${{ github.event.inputs.browser == 'firefox' }}
       run: |
         sudo apt-get update
         sudo apt-get install -y firefox
 
-    # Run tests
     - name: Run Selenium Tests
       run: |
         mvn clean test \
         -Dbrowser=${{ github.event.inputs.browser }} \
         -DsuiteXmlFile=${{ github.event.inputs.suite }}
 
-    # Install Allure
-    - name: Install Allure
+    - name: Install Allure CLI
       run: |
         sudo apt-get update
         sudo apt-get install -y allure
 
-    # Generate Allure Report
     - name: Generate Allure Report
+      if: always()
       run: |
         allure generate target/allure-results --clean -o allure-report
 
-    # Deploy Allure Report to GitHub Pages
-    - name: Deploy report to GitHub Pages
+    - name: Deploy Allure Report to GitHub Pages
+      if: always()
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
         publish_dir: allure-report
+        publish_branch: gh-pages
 
-    # Upload artifacts
     - name: Upload Allure Results
       if: always()
       uses: actions/upload-artifact@v4
@@ -96,8 +88,7 @@ jobs:
         name: allure-results
         path: target/allure-results
 
-    # Send Email
-    - name: Send Email with Allure Report Link
+    - name: Send Email
       if: always()
       uses: dawidd6/action-send-mail@v3
       with:
@@ -110,24 +101,24 @@ jobs:
         subject: Selenium Test Result: ${{ job.status }}
 
         to: ${{ secrets.EMAIL_TO }}
-        from: Selenium Automation
+        from: ${{ secrets.EMAIL_USERNAME }}
 
         html_body: |
-          <h2>Selenium Test Execution: ${{ job.status }}</h2>
+          <h2>Selenium Execution Result: ${{ job.status }}</h2>
 
           <p><b>Browser:</b> ${{ github.event.inputs.browser }}</p>
           <p><b>Suite:</b> ${{ github.event.inputs.suite }}</p>
 
-          <h3>View Allure Report:</h3>
+          <h3>Allure Report:</h3>
 
           <a href="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/">
-          Click here to open Allure Report
+          Open Allure Report
           </a>
 
           <br><br>
 
-          <p>GitHub Run:</p>
+          <h3>GitHub Action Run:</h3>
 
           <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">
-          View GitHub Action Run
-          </a> 
+          View Run Details
+          </a>
