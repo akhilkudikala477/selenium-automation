@@ -52,7 +52,7 @@ public class BaseTest {
     WebDriver childDriver = null;
 
     boolean isCI = System.getenv("CI") != null;
-    boolean isHeadlessFromProp = Boolean.parseBoolean(prop.getProperty("headless", "false"));
+    boolean isHeadlessFromProp = false;
     boolean runHeadless = isCI || isHeadlessFromProp;
 
     if (driverName.equalsIgnoreCase("chrome")) {
@@ -69,9 +69,9 @@ public class BaseTest {
         options.addArguments("--window-size=1920,1080");
 
         // Incognito
-        if (Boolean.parseBoolean(prop.getProperty("incognito", "true"))) {
-            options.addArguments("--incognito");
-        }
+   //     if (Boolean.parseBoolean(prop.getProperty("incognito", "true"))) {
+     //       options.addArguments("--incognito");
+       // }
 
         if (runHeadless) {
 
