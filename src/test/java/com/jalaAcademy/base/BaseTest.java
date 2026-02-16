@@ -48,65 +48,94 @@ public class BaseTest {
 	}
 
 	public WebDriver createDriver(String driverName) {
-		WebDriver childDriver = null;
-		if (driverName.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--incognito");
-			
-			options.addArguments("--remote-allow-origins=*");
-	    options.addArguments("--use-fake-ui-for-media-stream");
-	    options.addArguments("--disable-media-stream");
-	    options.addArguments("--window-size=1920,1080");
 
-	    // Optional from config
-	    if (Boolean.parseBoolean(prop.getProperty("incognito"))) {
-	        options.addArguments("--incognito");
-	    }
+    WebDriver childDriver = null;
 
-	    // Detect CI environment automatically
-	    boolean isCI = System.getenv("CI") != null;
+    boolean isCI = System.getenv("CI") != null;
+    boolean isHeadlessFromProp = Boolean.parseBoolean(prop.getProperty("headless", "false"));
+    boolean runHeadless = isCI || isHeadlessFromProp;
 
-	    // Detect headless from property
-	    boolean isHeadlessFromProp = Boolean.parseBoolean(prop.getProperty("headless"));
+    if (driverName.equalsIgnoreCase("chrome")) {
 
-	    // Apply headless if CI OR property enabled
-	    if (isCI || isHeadlessFromProp) {
+        WebDriverManager.chromedriver().setup();
 
-	        System.out.println("Running in HEADLESS mode");
+        ChromeOptions options = new ChromeOptions();
 
-	        options.addArguments("--headless=new");
-	        options.addArguments("--no-sandbox");
-	        options.addArguments("--disable-dev-shm-usage");
-	        options.addArguments("--disable-gpu");
-	        options.addArguments("--disable-extensions");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--use-fake-ui-for-media-stream");
+        options.addArguments("--disable-media-stream");
 
-	    } else {
+        // Always set window size (DO NOT use maximize in CI)
+        options.addArguments("--window-size=1920,1080");
 
-	        System.out.println("Running in NORMAL mode");
+        // Incognito
+        if (Boolean.parseBoolean(prop.getProperty("incognito", "true"))) {
+            options.addArguments("--incognito");
+        }
 
-	    }
-			childDriver = new ChromeDriver(options);
-			childDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			childDriver.manage().window().maximize();
-		} else if (driverName.equalsIgnoreCase("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
+        if (runHeadless) {
 
-			FirefoxOptions options = new FirefoxOptions();
-			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+            System.out.println("Running in HEADLESS mode (CI detected)");
 
-			// OPTIONAL: incognito/private mode
-			options.addArguments("-private");
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--disable-extensions");
+            options.addArguments("--remote-debugging-port=9222");
 
-			childDriver = new FirefoxDriver(options);
+        } else {
 
-			childDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			childDriver.manage().window().maximize();
+            System.out.println("Running in NORMAL mode (Local)");
 
-		}
-		tldriver.set(childDriver);
-		return childDriver;
-	}
+        }
+
+        childDriver = new ChromeDriver(options);
+
+        childDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        // ❌ DO NOT maximize in headless mode
+        if (!runHeadless) {
+            childDriver.manage().window().maximize();
+        }
+
+    }
+
+    else if (driverName.equalsIgnoreCase("firefox")) {
+
+        WebDriverManager.firefoxdriver().setup();
+
+        FirefoxOptions options = new FirefoxOptions();
+
+        // DO NOT set binary path for CI (Linux auto-detects)
+        if (!isCI) {
+            options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+        }
+
+        options.addArguments("-private");
+
+        if (runHeadless) {
+            options.addArguments("-headless");
+        }
+
+        childDriver = new FirefoxDriver(options);
+
+        childDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        if (!runHeadless) {
+            childDriver.manage().window().maximize();
+        }
+    }
+
+    else {
+        throw new RuntimeException("Unsupported browser: " + driverName);
+    }
+
+    tldriver.set(childDriver);
+
+    return childDriver;
+}
+
 	public WebDriver getDriver() {
         return tldriver.get();
     }
