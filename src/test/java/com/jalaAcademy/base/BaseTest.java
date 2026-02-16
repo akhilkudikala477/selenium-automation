@@ -53,6 +53,39 @@ public class BaseTest {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--incognito");
+			
+			options.addArguments("--remote-allow-origins=*");
+	    options.addArguments("--use-fake-ui-for-media-stream");
+	    options.addArguments("--disable-media-stream");
+	    options.addArguments("--window-size=1920,1080");
+
+	    // Optional from config
+	    if (Boolean.parseBoolean(prop.getProperty("incognito"))) {
+	        options.addArguments("--incognito");
+	    }
+
+	    // Detect CI environment automatically
+	    boolean isCI = System.getenv("CI") != null;
+
+	    // Detect headless from property
+	    boolean isHeadlessFromProp = Boolean.parseBoolean(prop.getProperty("headless"));
+
+	    // Apply headless if CI OR property enabled
+	    if (isCI || isHeadlessFromProp) {
+
+	        System.out.println("Running in HEADLESS mode");
+
+	        options.addArguments("--headless=new");
+	        options.addArguments("--no-sandbox");
+	        options.addArguments("--disable-dev-shm-usage");
+	        options.addArguments("--disable-gpu");
+	        options.addArguments("--disable-extensions");
+
+	    } else {
+
+	        System.out.println("Running in NORMAL mode");
+
+	    }
 			childDriver = new ChromeDriver(options);
 			childDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			childDriver.manage().window().maximize();
