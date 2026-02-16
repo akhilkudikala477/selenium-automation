@@ -1,0 +1,83 @@
+name: Selenium Tests (manual run only + choice params)
+
+# NOTE: This workflow is configured to run ONLY manually via the GitHub UI (workflow_dispatch).
+# It will NOT run on push or PRs. Use Actions -> Selenium Tests -> Run workflow.
+
+on:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Select browser'
+        required: true
+        default: 'chrome'
+        type: choice
+        options:
+          - chrome
+          - firefox
+      suite:
+        description: 'Select suite (value corresponds to your pom property ${suiteXmlFile})'
+        required: true
+        default: 'testng_sanity'
+        type: choice
+        options:
+          - testng_sanity
+          - testng_regression
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache Maven local repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2-
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Google Chrome (for Chrome browser)
+        if: ${{ github.event.inputs.browser == 'chrome' }}
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Install Firefox (for Firefox browser)
+        if: ${{ github.event.inputs.browser == 'firefox' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y firefox
+
+      - name: Show java & mvn versions
+        run: |
+          java -version
+          mvn -version
+
+      - name: Run Maven tests
+        run: |
+          mvn --batch-mode clean test \
+            -Dbrowser=${{ github.event.inputs.browser }} \
+            -DsuiteXmlFile=${{ github.event.inputs.suite }}
+
+      - name: Upload Surefire reports (for debugging on failure)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
+
+      - name: Upload Allure results (if your project writes allure-results)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: target/allure-results																																																																																							
