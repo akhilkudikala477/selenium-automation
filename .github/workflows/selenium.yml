@@ -1,8 +1,5 @@
 name: Selenium Tests (manual run only + choice params)
 
-# NOTE: This workflow is configured to run ONLY manually via the GitHub UI (workflow_dispatch).
-# It will NOT run on push or PRs. Use Actions -> Selenium Tests -> Run workflow.
-
 on:
   workflow_dispatch:
     inputs:
@@ -14,6 +11,7 @@ on:
         options:
           - chrome
           - firefox
+
       suite:
         description: 'Select suite (value corresponds to your pom property ${suiteXmlFile})'
         required: true
@@ -23,16 +21,23 @@ on:
           - testng_sanity
           - testng_regression
 
+
 jobs:
   test:
+
     runs-on: ubuntu-latest
+
     env:
       CI: true
 
     steps:
+
+      # Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
 
+
+      # Cache Maven dependencies
       - name: Cache Maven local repository
         uses: actions/cache@v4
         with:
@@ -41,43 +46,89 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-m2-
 
+
+      # Setup Java
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
-      - name: Setup Google Chrome (for Chrome browser)
+
+      # Setup Chrome
+      - name: Setup Google Chrome
         if: ${{ github.event.inputs.browser == 'chrome' }}
         uses: browser-actions/setup-chrome@v1
 
-      - name: Install Firefox (for Firefox browser)
+
+      # Setup Firefox
+      - name: Install Firefox
         if: ${{ github.event.inputs.browser == 'firefox' }}
         run: |
           sudo apt-get update
           sudo apt-get install -y firefox
 
-      - name: Show java & mvn versions
+
+      # Verify versions
+      - name: Show Java & Maven versions
         run: |
           java -version
           mvn -version
 
+
+      # Run tests
       - name: Run Maven tests
         run: |
           mvn --batch-mode clean test \
-            -Dbrowser=${{ github.event.inputs.browser }} \
-            -DsuiteXmlFile=${{ github.event.inputs.suite }}
+          -Dbrowser=${{ github.event.inputs.browser }} \
+          -DsuiteXmlFile=${{ github.event.inputs.suite }}
 
-      - name: Upload Surefire reports (for debugging on failure)
+
+      # Upload Surefire reports
+      - name: Upload Surefire reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports
           path: target/surefire-reports
 
-      - name: Upload Allure results (if your project writes allure-results)
+
+      # Upload Allure results
+      - name: Upload Allure results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
-          path: target/allure-results																																																																																							
+          path: target/allure-results
+
+
+      # Send Email Notification (SUCCESS + FAILURE)
+      - name: Send Email Notification
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+
+          server_address: smtp.gmail.com
+          server_port: 465
+
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+
+          subject: |
+            Selenium Execution ${{ job.status }} | Browser: ${{ github.event.inputs.browser }} | Suite: ${{ github.event.inputs.suite }}
+
+          body: |
+            Selenium Automation Execution Result: ${{ job.status }}
+
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.ref_name }}
+            Triggered by: ${{ github.actor }}
+
+            Browser: ${{ github.event.inputs.browser }}
+            Suite: ${{ github.event.inputs.suite }}
+
+            View Full Report:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          to: your_email@gmail.com
+          from: ${{ secrets.EMAIL_USERNAME }}
