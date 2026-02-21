@@ -18,7 +18,6 @@ jobs:
       name: github-pages
 
     steps:
-
       # STEP 1: Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,38 +36,94 @@ jobs:
           path: ~/.m2/repository
           key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
 
-      # STEP 4: Run Tests
+      # STEP 4: Run Tests (non-interactive, CI-friendly)
       - name: Run Tests
-        run: mvn clean test
+        run: mvn -B clean test
 
-      # STEP 5: Verify Allure Results
-      - name: Verify Allure Results
-        run: ls -la target/allure-results
-
-      # STEP 6: Install Allure CLI
-      - name: Install Allure
+      # STEP 5: Debug - show all allure-results directories and files
+      - name: Debug: List all allure-results directories and inspect JSON
         run: |
+          echo "Working dir: $(pwd)"
+          echo "Top-level files:"
+          ls -la
+          echo "Find any allure-results dirs:"
+          find . -type d -name "allure-results" -print || true
+          echo "List contents of each allure-results (if any):"
+          for d in $(find . -type d -name "allure-results"); do
+            echo "=== $d ==="
+            ls -la "$d" || true
+            echo "Any json files (head):"
+            for f in "$d"/*.json; do
+              [ -f "$f" ] && echo "---- $f ----" && head -n 40 "$f"
+            done
+          done
+          echo "Also show any *-result.json files in repo:"
+          find . -type f -name "*-result.json" -print -exec head -n 10 {} \; || true
+
+      # STEP 6: (Optional) Copy categories/environment extras into each allure-results
+      # Place categories.json and/or environment.properties at repo root if you want them included
+      - name: Copy categories/environment into allure-results if present
+        run: |
+          for d in $(find . -type d -name "allure-results"); do
+            echo "Processing $d"
+            [ -f categories.json ] && cp categories.json "$d"/ && echo "copied categories.json to $d" || echo "no categories.json to copy"
+            [ -f environment.properties ] && cp environment.properties "$d"/ && echo "copied environment.properties to $d" || echo "no environment.properties to copy"
+          done || true
+
+      # STEP 7: Install Allure CLI
+      - name: Install Allure CLI
+        run: |
+          set -e
           curl -Lo allure.tgz https://github.com/allure-framework/allure2/releases/download/2.24.1/allure-2.24.1.tgz
           sudo tar -zxvf allure.tgz -C /opt/
           sudo ln -sf /opt/allure-2.24.1/bin/allure /usr/bin/allure
           allure --version
 
-      # STEP 7: Generate Report
-      - name: Generate Report
-        run: allure generate target/allure-results --clean -o allure-report
+      # STEP 8: Generate report from all found allure-results (multi-module safe)
+      - name: Generate Report (from all allure-results)
+        run: |
+          set -e
+          RESULTS="$(find . -type d -name 'allure-results' -print | tr '\n' ' ')"
+          echo "Found results dirs: $RESULTS"
+          if [ -z "$RESULTS" ]; then
+            echo "ERROR: no allure-results found. See previous debug step."
+            # fail so you notice missing results in CI
+            exit 1
+          fi
 
-      # STEP 8: Upload Pages Artifact
+          # Generate merged report from all results
+          allure generate $RESULTS --clean -o allure-report
+
+          echo "Report folder listing:"
+          ls -la allure-report || true
+          if [ -f "allure-report/index.html" ]; then
+            echo "index.html exists (size):"
+            ls -lh allure-report/index.html
+            head -n 40 allure-report/index.html || true
+          else
+            echo "No index.html found in allure-report — generation may have failed."
+            exit 1
+          fi
+
+      # STEP 9: Quick verify generated report files
+      - name: Quick verify generated report files
+        run: |
+          [ -d allure-report ] && echo "report exists" || (echo "no report" && exit 1)
+          echo "report contains (top):"
+          ls -la allure-report | sed -n '1,200p'
+
+      # STEP 10: Upload Pages Artifact
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: allure-report
 
-      # STEP 9: Deploy Pages
+      # STEP 11: Deploy Pages
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # STEP 10: Send Email with Allure Report Link
+      # STEP 12: Send Email with Allure Report Link (keeps your existing logic)
       - name: Send email with report link
         if: always()
         env:
@@ -80,7 +135,7 @@ jobs:
 
           echo "GitHub Pages URL is: $PAGE_URL"
 
-          python3 <<EOF
+          python3 <<'PY'
           import os, smtplib, ssl
           from urllib.parse import urlparse
           from email.message import EmailMessage
@@ -143,4 +198,4 @@ jobs:
               server.send_message(msg)
 
           print("EMAIL SENT SUCCESSFULLY")
-          EOF
+          PY
