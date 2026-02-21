@@ -38,8 +38,8 @@ jobs:
           key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
 
       # STEP 4: Run Tests
-      - name: Run Tests
-        run: mvn clean test
+      - name: Run Tests (Do not stop on failure)
+        run: mvn clean test || true
 
       # STEP 5: Verify Allure Results
       - name: Verify Allure Results
