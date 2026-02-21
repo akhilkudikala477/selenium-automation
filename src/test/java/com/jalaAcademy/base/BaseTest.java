@@ -72,6 +72,7 @@ public class BaseTest {
 
 		}
 		tldriver.set(childDriver);
+		
 		return childDriver;
 	}
 	public WebDriver getDriver() {
