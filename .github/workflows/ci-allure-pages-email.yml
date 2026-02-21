@@ -143,4 +143,5 @@ jobs:
               server.send_message(msg)
 
           print("EMAIL SENT SUCCESSFULLY")
+
           EOF
