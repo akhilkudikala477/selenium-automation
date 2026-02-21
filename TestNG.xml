@@ -23,6 +23,8 @@
             <class name="com.jalaAcademy.automation.MenuTest"/>
             <class name="com.jalaAcademy.automation.IframeTest"/>
             <class name="com.jalaAcademy.automation.ImagesTest"/>
+            <class name="com.jalaAcademy.automation.IntentionalFailTest"/>
+
         </classes>
 
     </test>
