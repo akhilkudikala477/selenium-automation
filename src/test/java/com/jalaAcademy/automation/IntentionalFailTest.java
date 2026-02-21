@@ -42,7 +42,7 @@ public class IntentionalFailTest extends BaseTest {
        
 
         // INTENTIONAL incorrect expectation to force a failure
-        String expectedTitle = "THIS_TITLE_WILL_NEVER_MATCH - DEMO will FAIL";
+        String expectedTitle = "THIS_TITLE_WILL_NEVER_MATCHs - DEMO will FAIL";
         String actualTitle = driver.getTitle();
 
         // Attach to Allure for better debug context
