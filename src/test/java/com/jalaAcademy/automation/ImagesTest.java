@@ -1,5 +1,8 @@
 package com.jalaAcademy.automation;
 
+import java.io.File;
+import java.nio.file.Paths;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -50,8 +53,12 @@ public class ImagesTest extends BaseTest {
 	@Owner("Akhil")
 	public synchronized void A_testUploadImages() throws InterruptedException {
 		log.info("Starting of testUploadImages method");
+		String relativePath = testDataProp.getProperty("upload.image");
 
-		imagesPage.uploadImage(testDataProp.getProperty("upload.image"));
+		String filePath = new File(
+		        testDataProp.getProperty("upload.image")
+		).getAbsolutePath();
+		imagesPage.uploadImage(filePath);
 		Thread.sleep(2000);
 		imagesPage.clickOnUploadButton();
 		String labelUploadedImage = imagesPage.getImageLabel();
