@@ -2,8 +2,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
 <suite name="Jala Academy Automation Suite"
-       parallel="tests"
-       thread-count="2"
        preserve-order="true">
 
     <listeners>
@@ -12,7 +10,7 @@
     </listeners>
 
     <!-- Chrome Execution -->
-    <test name="Chrome_Test">
+    <test name="End to End Test">
 
         <parameter name="browser" value="chrome"/>
         <parameter name="siteURL"
@@ -20,11 +18,11 @@
 
         <classes>
             <class name="com.jalaAcademy.automation.LoginTest"/>
-        <!--    <class name="com.jalaAcademy.automation.EmployeeDetailsTest"/>
+           <class name="com.jalaAcademy.automation.EmployeeDetailsTest"/>
             <class name="com.jalaAcademy.automation.SearchEmployeeTest"/>
             <class name="com.jalaAcademy.automation.MenuTest"/>
             <class name="com.jalaAcademy.automation.IframeTest"/>
-            <class name="com.jalaAcademy.automation.ImagesTest"/>-->
+            <class name="com.jalaAcademy.automation.ImagesTest"/>
         </classes>
 
     </test>
