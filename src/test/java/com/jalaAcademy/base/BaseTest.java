@@ -63,7 +63,7 @@ public class BaseTest {
 			options.addArguments("--remote-allow-origins=*");
 			options.addArguments("--use-fake-ui-for-media-stream");
 			options.addArguments("--disable-media-stream");
-
+			options.addArguments("--incognito");
 			// Always set window size (DO NOT use maximize in CI)
 			options.addArguments("--window-size=1920,1080");
 
@@ -82,7 +82,7 @@ public class BaseTest {
 				options.addArguments("--disable-gpu");
 				options.addArguments("--disable-extensions");
 				options.addArguments("--remote-debugging-port=9222");
-
+				options.addArguments("--incognito");
 			} else {
 
 				System.out.println("Running in NORMAL mode (Local)");

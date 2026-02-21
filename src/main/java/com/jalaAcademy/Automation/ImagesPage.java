@@ -1,5 +1,7 @@
 package com.jalaAcademy.Automation;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,14 +20,13 @@ public class ImagesPage extends BasePage {
 	@FindBy(xpath = "//div[@class='box-header with-border']/span")
 	private WebElement labelUploadedImage;
 
-	public ImagesPage(WebDriver Driver) {
-		super();
-		log.info("Starting of ImagesPage constructor");
+	public ImagesPage(WebDriver driver) {
+	    super(driver, Duration.ofSeconds(30));
+	    log.info("Starting of HomePage constructor");
 
-		PageFactory.initElements(Driver, this);
-		
-		log.info("Ending of ImagesPage constructor");
+	    PageFactory.initElements(driver, this);
 
+	    log.info("Ending of HomePage constructor");
 	}
 
 	public String getImageLabel() {

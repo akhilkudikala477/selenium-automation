@@ -1,5 +1,7 @@
 package com.jalaAcademy.Automation;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,13 +21,13 @@ public class MenuPage extends BasePage {
 	@FindBy(xpath = "(//a[@id='selbtn'])[1]")
 	private WebElement btnSelenium;
 
-	public MenuPage(WebDriver Driver) {
-		super();
-		log.info("Starting of MenuPage constructor");
+	public MenuPage(WebDriver driver) {
+	    super(driver, Duration.ofSeconds(30));
+	    log.info("Starting of HomePage constructor");
 
-		PageFactory.initElements(Driver,this);
-		
-		log.info("Ending of MenuPage constructor");
+	    PageFactory.initElements(driver, this);
+
+	    log.info("Ending of HomePage constructor");
 	}
 	
 	public void clickOnSubMenuButton() {

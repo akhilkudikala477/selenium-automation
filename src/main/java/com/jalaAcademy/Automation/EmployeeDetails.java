@@ -1,9 +1,12 @@
 package com.jalaAcademy.Automation;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.jalaAcademy.page.BasePage;
 
@@ -56,13 +59,13 @@ public class EmployeeDetails extends BasePage {
 	@FindBy(xpath = "//button[@class='btn btn-success m-r-xs']")
 	private WebElement btnSave;
 
-	public EmployeeDetails(WebDriver Driver) {
-		super();
-		log.info("Starting of EmployeeDetails constructor");
+	public EmployeeDetails(WebDriver driver) {
+	    super(driver, Duration.ofSeconds(30));
+	    log.info("Starting of HomePage constructor");
 
-		PageFactory.initElements(Driver, this);
-		
-		log.info("Ending of EmployeeDetails constructor");
+	    PageFactory.initElements(driver, this);
+
+	    log.info("Ending of HomePage constructor");
 	}
 
 	public String getWelcomeToJalaAcademy() {
@@ -76,7 +79,7 @@ public class EmployeeDetails extends BasePage {
 		log.info("Starting of clickOnEmployeeButton method");
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,5 +1,7 @@
 package com.jalaAcademy.Automation;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,13 +23,13 @@ public class IframePage extends BasePage {
 	@FindBy(xpath = "//iframe[@id='iframe2']")
 	private WebElement iframe2;
 
-	public IframePage(WebDriver Driver) {
-		super();
-		log.info("Starting of IframePage constructor");
+	public IframePage(WebDriver driver) {
+	    super(driver, Duration.ofSeconds(30));
+	    log.info("Starting of HomePage constructor");
 
-		PageFactory.initElements(Driver, this);
+	    PageFactory.initElements(driver, this);
 
-		log.info("Ending of IframePage constructor");
+	    log.info("Ending of HomePage constructor");
 	}
 
 	public String getFrameOneText() {

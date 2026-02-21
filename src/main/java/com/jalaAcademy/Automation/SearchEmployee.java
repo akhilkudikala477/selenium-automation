@@ -1,5 +1,7 @@
 package com.jalaAcademy.Automation;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,13 +23,13 @@ public class SearchEmployee extends BasePage {
 	@FindBy(xpath = "//button[@id='btnSearch']")
 	private WebElement btnSearch1;
 
-	public SearchEmployee(WebDriver Driver) {
-		super();
-		log.info("Starting of SearchEmployee method");
+	public SearchEmployee(WebDriver driver) {
+	    super(driver, Duration.ofSeconds(30));
+	    log.info("Starting of HomePage constructor");
 
-		PageFactory.initElements(Driver, this);
+	    PageFactory.initElements(driver, this);
 
-		log.info("Ending of SearchEmployee method");
+	    log.info("Ending of HomePage constructor");
 	}
 
 	public void clickOnSearch() {
