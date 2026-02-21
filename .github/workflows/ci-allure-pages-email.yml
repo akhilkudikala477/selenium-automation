@@ -1,4 +1,4 @@
-name: CI — Tests → Allure → Pages → Email
+name: CI - Tests - Allure - Pages - Email
 
 on:
   push:
@@ -18,113 +18,61 @@ jobs:
       name: github-pages
 
     steps:
-      # STEP 1: Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # STEP 2: Setup Java
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: 17
 
-      # STEP 3: Cache Maven
       - name: Cache Maven
         uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
 
-      # STEP 4: Run Tests (non-interactive, CI-friendly)
       - name: Run Tests
         run: mvn -B clean test
 
-      # STEP 5: Debug - show all allure-results directories and files
-      - name: Debug: List all allure-results directories and inspect JSON
+      - name: Debug Allure Results
         run: |
-          echo "Working dir: $(pwd)"
-          echo "Top-level files:"
-          ls -la
-          echo "Find any allure-results dirs:"
-          find . -type d -name "allure-results" -print || true
-          echo "List contents of each allure-results (if any):"
-          for d in $(find . -type d -name "allure-results"); do
-            echo "=== $d ==="
-            ls -la "$d" || true
-            echo "Any json files (head):"
-            for f in "$d"/*.json; do
-              [ -f "$f" ] && echo "---- $f ----" && head -n 40 "$f"
-            done
-          done
-          echo "Also show any *-result.json files in repo:"
-          find . -type f -name "*-result.json" -print -exec head -n 10 {} \; || true
+          echo "Searching for allure-results folders..."
+          find . -type d -name "allure-results"
+          echo "Searching for result json files..."
+          find . -name "*-result.json"
 
-      # STEP 6: (Optional) Copy categories/environment extras into each allure-results
-      # Place categories.json and/or environment.properties at repo root if you want them included
-      - name: Copy categories/environment into allure-results if present
-        run: |
-          for d in $(find . -type d -name "allure-results"); do
-            echo "Processing $d"
-            [ -f categories.json ] && cp categories.json "$d"/ && echo "copied categories.json to $d" || echo "no categories.json to copy"
-            [ -f environment.properties ] && cp environment.properties "$d"/ && echo "copied environment.properties to $d" || echo "no environment.properties to copy"
-          done || true
-
-      # STEP 7: Install Allure CLI
       - name: Install Allure CLI
         run: |
-          set -e
           curl -Lo allure.tgz https://github.com/allure-framework/allure2/releases/download/2.24.1/allure-2.24.1.tgz
           sudo tar -zxvf allure.tgz -C /opt/
           sudo ln -sf /opt/allure-2.24.1/bin/allure /usr/bin/allure
           allure --version
 
-      # STEP 8: Generate report from all found allure-results (multi-module safe)
-      - name: Generate Report (from all allure-results)
+      - name: Generate Allure Report
         run: |
-          set -e
-          RESULTS="$(find . -type d -name 'allure-results' -print | tr '\n' ' ')"
-          echo "Found results dirs: $RESULTS"
+          RESULTS=$(find . -type d -name "allure-results" | tr '\n' ' ')
+          echo "Found results in: $RESULTS"
+
           if [ -z "$RESULTS" ]; then
-            echo "ERROR: no allure-results found. See previous debug step."
-            # fail so you notice missing results in CI
+            echo "No allure-results found!"
             exit 1
           fi
 
-          # Generate merged report from all results
           allure generate $RESULTS --clean -o allure-report
+          ls -la allure-report
 
-          echo "Report folder listing:"
-          ls -la allure-report || true
-          if [ -f "allure-report/index.html" ]; then
-            echo "index.html exists (size):"
-            ls -lh allure-report/index.html
-            head -n 40 allure-report/index.html || true
-          else
-            echo "No index.html found in allure-report — generation may have failed."
-            exit 1
-          fi
-
-      # STEP 9: Quick verify generated report files
-      - name: Quick verify generated report files
-        run: |
-          [ -d allure-report ] && echo "report exists" || (echo "no report" && exit 1)
-          echo "report contains (top):"
-          ls -la allure-report | sed -n '1,200p'
-
-      # STEP 10: Upload Pages Artifact
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: allure-report
 
-      # STEP 11: Deploy Pages
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # STEP 12: Send Email with Allure Report Link (keeps your existing logic)
-      - name: Send email with report link
+      - name: Send Email with Report Link
         if: always()
         env:
           MAIL_CONNECTION: ${{ secrets.MAIL_CONNECTION }}
@@ -132,70 +80,63 @@ jobs:
           REPO: ${{ github.repository }}
           RUN_ID: ${{ github.run_id }}
         run: |
-
           echo "GitHub Pages URL is: $PAGE_URL"
 
-          python3 <<'PY'
-          import os, smtplib, ssl
-          from urllib.parse import urlparse
-          from email.message import EmailMessage
+          python3 <<EOF
+import os, smtplib, ssl
+from urllib.parse import urlparse
+from email.message import EmailMessage
 
-          conn = os.getenv("MAIL_CONNECTION")
+conn = os.getenv("MAIL_CONNECTION")
+if not conn:
+    print("MAIL_CONNECTION missing")
+    exit(0)
 
-          if not conn:
-              print("MAIL_CONNECTION missing")
-              exit(0)
+parsed = urlparse(conn)
 
-          parsed = urlparse(conn)
+username = parsed.username
+password = parsed.password
+host = parsed.hostname
+port = parsed.port or 587
 
-          username = parsed.username
-          password = parsed.password
-          host = parsed.hostname
-          port = parsed.port or 587
+page_url = os.getenv("PAGE_URL")
 
-          page_url = os.getenv("PAGE_URL")
+if not page_url:
+    repo = os.getenv("REPO")
+    username_repo = repo.split("/")[0]
+    repo_name = repo.split("/")[1]
+    page_url = f"https://{username_repo}.github.io/{repo_name}/"
 
-          # Fallback if GitHub does not return page_url
-          if not page_url:
-              repo = os.getenv("REPO")
-              username_repo = repo.split("/")[0]
-              repo_name = repo.split("/")[1]
-              page_url = f"https://{username_repo}.github.io/{repo_name}/"
+workflow_url = f"https://github.com/{os.getenv('REPO')}/actions/runs/{os.getenv('RUN_ID')}"
 
-          workflow_url = f"https://github.com/{os.getenv('REPO')}/actions/runs/{os.getenv('RUN_ID')}"
+msg = EmailMessage()
+msg['Subject'] = "Automation Allure Report Ready"
+msg['From'] = username
+msg['To'] = username
 
-          msg = EmailMessage()
-          msg['Subject'] = "Automation Allure Report Ready"
-          msg['From'] = username
-          msg['To'] = username
+msg.set_content(f"Allure Report: {page_url}")
 
-          msg.set_content(f"Allure Report: {page_url}")
+msg.add_alternative(f"""
+<h2>Automation Execution Completed</h2>
+<p>
+<a href="{page_url}" style="background:#28a745;color:white;padding:12px 20px;text-decoration:none;border-radius:5px;">
+VIEW ALLURE REPORT
+</a>
+</p>
+<br>
+<p>
+<a href="{workflow_url}">
+View Workflow Run
+</a>
+</p>
+""", subtype='html')
 
-          msg.add_alternative(f'''
-          <h2>Automation Execution Completed</h2>
+context = ssl.create_default_context()
 
-          <p>
-          <a href="{page_url}" 
-             style="background:#28a745;color:white;padding:12px 20px;text-decoration:none;border-radius:5px;">
-             VIEW ALLURE REPORT
-          </a>
-          </p>
+with smtplib.SMTP(host, port) as server:
+    server.starttls(context=context)
+    server.login(username, password)
+    server.send_message(msg)
 
-          <br>
-
-          <p>
-          <a href="{workflow_url}">
-             View Workflow Run
-          </a>
-          </p>
-          ''', subtype='html')
-
-          context = ssl.create_default_context()
-
-          with smtplib.SMTP(host, port) as server:
-              server.starttls(context=context)
-              server.login(username, password)
-              server.send_message(msg)
-
-          print("EMAIL SENT SUCCESSFULLY")
-          PY
+print("EMAIL SENT SUCCESSFULLY")
+EOF
