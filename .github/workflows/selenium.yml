@@ -1,0 +1,124 @@
+name: Selenium Tests + Allure Report + Email
+
+on:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Select browser'
+        required: true
+        default: 'chrome'
+        type: choice
+        options:
+          - chrome
+          - firefox
+
+      suite:
+        description: 'Select suite'
+        required: true
+        default: 'testng_sanity'
+        type: choice
+        options:
+          - testng_sanity
+          - testng_regression
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Cache Maven repository
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Setup Chrome
+      if: ${{ github.event.inputs.browser == 'chrome' }}
+      uses: browser-actions/setup-chrome@v1
+
+    - name: Setup Firefox
+      if: ${{ github.event.inputs.browser == 'firefox' }}
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y firefox
+
+    - name: Run Selenium Tests
+      run: |
+        mvn clean test \
+        -Dbrowser=${{ github.event.inputs.browser }} \
+        -DsuiteXmlFile=${{ github.event.inputs.suite }}
+
+    - name: Install Allure CLI
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y allure
+
+    - name: Generate Allure Report
+      if: always()
+      run: |
+        allure generate target/allure-results --clean -o allure-report
+
+    - name: Deploy Allure Report to GitHub Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: allure-report
+        publish_branch: gh-pages
+
+    - name: Upload Allure Results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-results
+        path: target/allure-results
+
+    - name: Send Email
+      if: always()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+
+        subject: Selenium Test Result: ${{ job.status }}
+
+        to: ${{ secrets.EMAIL_TO }}
+        from: ${{ secrets.EMAIL_USERNAME }}
+
+        html_body: |
+          <h2>Selenium Execution Result: ${{ job.status }}</h2>
+
+          <p><b>Browser:</b> ${{ github.event.inputs.browser }}</p>
+          <p><b>Suite:</b> ${{ github.event.inputs.suite }}</p>
+
+          <h3>Allure Report:</h3>
+
+          <a href="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/">
+          Open Allure Report
+          </a>
+
+          <br><br>
+
+          <h3>GitHub Action Run:</h3>
+
+          <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">
+          View Run Details
+          </a>

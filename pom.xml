@@ -133,9 +133,29 @@
             <version>3.1.2</version>
         </plugin>
     
+ <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>3.2.5</version>
+  <configuration>
+    <!-- ensure Allure results directory -->
+    <systemPropertyVariables>
+      <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+    </systemPropertyVariables>
 
+    <!-- register the TestNG listener for Allure -->
+    <properties>
+      <property>
+        <name>listener</name>
+        <value>io.qameta.allure.testng.AllureTestNg</value>
+      </property>
+    </properties>
 
-
+    <!-- optional: helps with classloading in some CI setups -->
+    <forkCount>1</forkCount>
+    <reuseForks>false</reuseForks>
+  </configuration>
+</plugin>
         
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>

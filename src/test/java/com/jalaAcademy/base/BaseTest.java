@@ -20,7 +20,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeSuite;
 
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
@@ -48,36 +47,98 @@ public class BaseTest {
 	}
 
 	public WebDriver createDriver(String driverName) {
+
 		WebDriver childDriver = null;
+
+		boolean isCI = System.getenv("CI") != null;
+		boolean isHeadlessFromProp = false;
+		boolean runHeadless = isCI || isHeadlessFromProp;
+
 		if (driverName.equalsIgnoreCase("chrome")) {
+
 			WebDriverManager.chromedriver().setup();
+
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--incognito");
+
+			options.addArguments("--remote-allow-origins=*");
+			options.addArguments("--use-fake-ui-for-media-stream");
+			options.addArguments("--disable-media-stream");
+
+			// Always set window size (DO NOT use maximize in CI)
+			options.addArguments("--window-size=1920,1080");
+
+			// Incognito
+			// if (Boolean.parseBoolean(prop.getProperty("incognito", "true"))) {
+			// options.addArguments("--incognito");
+			// }
+
+			if (runHeadless) {
+
+				System.out.println("Running in HEADLESS mode (CI detected)");
+
+				options.addArguments("--headless=new");
+				options.addArguments("--no-sandbox");
+				options.addArguments("--disable-dev-shm-usage");
+				options.addArguments("--disable-gpu");
+				options.addArguments("--disable-extensions");
+				options.addArguments("--remote-debugging-port=9222");
+
+			} else {
+
+				System.out.println("Running in NORMAL mode (Local)");
+
+			}
+
 			childDriver = new ChromeDriver(options);
+
 			childDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			childDriver.manage().window().maximize();
-		} else if (driverName.equalsIgnoreCase("firefox")) {
+
+			// ❌ DO NOT maximize in headless mode
+			if (!runHeadless) {
+				childDriver.manage().window().maximize();
+			}
+
+		}
+
+		else if (driverName.equalsIgnoreCase("firefox")) {
+
 			WebDriverManager.firefoxdriver().setup();
 
 			FirefoxOptions options = new FirefoxOptions();
-			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
 
-			// OPTIONAL: incognito/private mode
+			// DO NOT set binary path for CI (Linux auto-detects)
+			if (!isCI) {
+				options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+			}
+
 			options.addArguments("-private");
+
+			if (runHeadless) {
+				options.addArguments("-headless");
+			}
 
 			childDriver = new FirefoxDriver(options);
 
 			childDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			childDriver.manage().window().maximize();
 
+			if (!runHeadless) {
+				childDriver.manage().window().maximize();
+			}
 		}
+
+		else {
+			throw new RuntimeException("Unsupported browser: " + driverName);
+		}
+
 		tldriver.set(childDriver);
-		
+
 		return childDriver;
 	}
+
 	public WebDriver getDriver() {
-        return tldriver.get();
-    }
+		return tldriver.get();
+	}
+
 	public static void captureScreenshot() {
 		log.info("Starting of captureScreenshot method ");
 		String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS" + "" + "").format(new Date());
@@ -88,7 +149,7 @@ public class BaseTest {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
+
 		}
 		log.info("Ending of captureScreenshot method ");
 	}
@@ -96,7 +157,7 @@ public class BaseTest {
 	public synchronized void quitDriver() throws InterruptedException {
 		if (tldriver.get() != null) {
 			tldriver.get().quit();
-            tldriver.remove();
+			tldriver.remove();
 		}
 	}
 }
